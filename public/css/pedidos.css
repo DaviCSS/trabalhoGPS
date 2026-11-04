@@ -1,0 +1,371 @@
+.legendaBadges {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	padding: 1.2em 1.5em;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+}
+
+.legendaTitulo {
+	font-family: 'Jost', sans-serif;
+	font-size: 0.9em;
+	font-weight: 600;
+	color: #7e6f67;
+	margin-bottom: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.legendaItens {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.8em;
+	align-items: center;
+}
+
+.legendaItem {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.legendaTexto {
+	font-size: 0.85em;
+	color: #7e6f67;
+}
+
+.cardPedido {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	margin-bottom: 1.2em;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+	overflow: hidden;
+	transition: box-shadow 0.2s ease;
+}
+
+.cardPedido:hover {
+	box-shadow: 0 8px 24px rgba(43, 31, 26, 0.1);
+}
+
+.destaque-novo {
+	border-left: 5px solid #932121;
+}
+
+.cardPedidoConcluido {
+	opacity: 0.7;
+}
+
+.cardPedidoCabecalho {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.8em;
+	padding: 1.2em 1.5em;
+	border-bottom: 1px solid #f8f6f0;
+	background-color: #fdfbf7;
+}
+
+.pedidoNumero {
+	font-family: 'Jost', sans-serif;
+	font-size: 1em;
+	font-weight: 700;
+	color: #2b1f1a;
+	margin-right: 0.5em;
+}
+
+.pedidoData {
+	font-size: 0.82em;
+	color: #7e6f67;
+}
+
+.pedidoBadges {
+	display: flex;
+	gap: 0.5em;
+	flex-wrap: wrap;
+}
+
+.textoHumanizado {
+	font-family: 'Jost', sans-serif;
+	font-size: 1em;
+	font-weight: 600;
+	color: #2b1f1a;
+	padding: 0.9em 1.5em;
+	background-color: #f8fcf8;
+	border-bottom: 1px solid #f0f8f0;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	flex-wrap: wrap;
+}
+
+.textoHumanizado .material-symbols-outlined {
+	color: #4a6741;
+	font-size: 1.1em;
+}
+
+.textoHumanizado .prazo {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
+	background-color: #fff3cd;
+	color: #856404;
+	padding: 0.2em 0.7em;
+	border-radius: 100px;
+	font-size: 0.9em;
+	font-weight: 700;
+}
+
+.cardPedidoCorpo {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 1em;
+	padding: 1.3em 1.5em;
+}
+
+.pedidoDetalhe {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.6em;
+}
+
+.pedidoDetalhe .material-symbols-outlined {
+	font-size: 1.2em;
+	margin-top: 0.1em;
+	flex-shrink: 0;
+}
+
+.pedidoDetalhe strong {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.75em;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #7e6f67;
+	display: block;
+	margin-bottom: 0.2em;
+}
+
+.pedidoDetalhe p {
+	font-size: 0.95em;
+	color: #2b1f1a;
+	margin: 0;
+	font-weight: 600;
+}
+
+.cardPedidoAcoes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7em;
+	padding: 1.2em 1.5em;
+	border-top: 1px solid #f8f6f0;
+	background-color: #fdfbf7;
+}
+
+.btnAcao {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45em;
+	border: none;
+	border-radius: 100px;
+	padding: 0.7em 1.4em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.9em;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+	min-height: 44px; 
+}
+
+.btnAcao .material-symbols-outlined {
+	font-size: 1.1em;
+}
+
+.btnAcao:hover {
+	transform: scale(1.03);
+}
+
+.btnAceitarPedido {
+	background-color: #932121;
+	color: #FDFBF7;
+}
+
+.btnAceitarPedido:hover {
+	background-color: #7a1a1a;
+	box-shadow: 0 4px 12px rgba(147, 33, 33, 0.25);
+}
+
+.btnEnviar {
+	background-color: #4a6741;
+	color: #FDFBF7;
+}
+
+.btnEnviar:hover {
+	background-color: #3a5233;
+	box-shadow: 0 4px 12px rgba(74, 103, 65, 0.25);
+}
+
+.btnWhatsApp {
+	background-color: #25D366;
+	color: #ffffff;
+	border: none;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.btnWhatsApp:hover {
+	background-color: #1ebe5a;
+	box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.iconWhatsApp {
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+	flex-shrink: 0;
+}
+
+.btnEtiqueta {
+	background-color: #004085;
+	color: #FDFBF7;
+}
+
+.btnEtiqueta:hover {
+	background-color: #003068;
+}
+
+.btnPendencia {
+	background-color: #fff3cd;
+	color: #856404;
+}
+
+.btnPendencia:hover {
+	background-color: #ffe69c;
+}
+
+.btnCancelar {
+	background-color: transparent;
+	color: #7e6f67;
+	border: 1.5px solid #e2dcd5;
+}
+
+.btnCancelar:hover {
+	background-color: #fdf6f6;
+	color: #721c24;
+	border-color: #f5c2c7;
+}
+
+.zonaCancelamento {
+	display: none; 
+	padding: 1.2em 1.5em;
+	background-color: #fff8f0;
+	border-top: 2px solid #f0ad4e;
+	animation: slideDown 0.25s ease;
+}
+
+.zonaCancelamento.ativo {
+	display: block;
+}
+
+@keyframes slideDown {
+	from { opacity: 0; transform: translateY(-8px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+.zonaCancelamentoTexto {
+	font-family: 'Jost', sans-serif;
+	font-size: 1em;
+	font-weight: 600;
+	color: #856404;
+	margin-bottom: 0.8em;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.zonaCancelamentoBotoes {
+	display: flex;
+	gap: 0.8em;
+	flex-wrap: wrap;
+}
+
+.btnDesfazer {
+	background-color: #4a6741;
+	color: #FDFBF7;
+	border: none;
+	border-radius: 100px;
+	padding: 0.7em 1.4em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.9em;
+	font-weight: 700;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	min-height: 44px;
+	transition: background-color 0.2s ease;
+}
+
+.btnDesfazer:hover {
+	background-color: #3a5233;
+}
+
+.btnConfirmarCancelamento {
+	background-color: #f8d7da;
+	color: #721c24;
+	border: 1.5px solid #f5c2c7;
+	border-radius: 100px;
+	padding: 0.7em 1.4em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.9em;
+	font-weight: 700;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	min-height: 44px;
+	transition: background-color 0.2s ease;
+}
+
+.btnConfirmarCancelamento:hover {
+	background-color: #f5c2c7;
+}
+
+.countdownCancelamento {
+	font-size: 0.8em;
+	color: #b5a89e;
+	align-self: center;
+}
+
+@media (max-width: 576px) {
+	.cardPedidoCorpo {
+		grid-template-columns: 1fr;
+	}
+
+.cardPedidoCabecalho {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+.cardPedidoAcoes {
+		flex-direction: column;
+	}
+
+.btnAcao,
+	.btnWhatsApp,
+	.btnDesfazer,
+	.btnConfirmarCancelamento {
+		width: 100%;
+		justify-content: center;
+		padding: 0.85em 1em;
+		font-size: 0.95em;
+	}
+
+.zonaCancelamentoBotoes {
+		flex-direction: column;
+	}
+
+.legendaItens {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}

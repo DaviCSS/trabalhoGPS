@@ -1,0 +1,254 @@
+.paginaCarrinho {
+	background-color: #f8f6f0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.dashboardHeader {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 3em;
+}
+
+.carrinhoItem {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	padding: 1.5em;
+	margin-bottom: 1em;
+	display: flex;
+	align-items: center;
+	gap: 1.2em;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+}
+
+.carrinhoItemFoto {
+	flex-shrink: 0;
+}
+
+.fotoPlaceholder {
+	width: 90px;
+	height: 90px;
+	border-radius: 14px;
+	background-color: #f5e8e8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.carrinhoItemInfo {
+	flex: 1;
+}
+
+.carrinhoItemInfo h3 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.15em;
+	color: #2b1f1a;
+	margin: 0 0 0.25em 0;
+}
+
+.artesa-nome {
+	font-size: 0.85em;
+	color: #7e6f67;
+	margin: 0 0 0.25em 0;
+}
+
+.preco-unitario {
+	font-size: 0.9em;
+	color: #932121;
+	font-weight: 600;
+	margin: 0;
+}
+
+.carrinhoItemQtd {
+	flex-shrink: 0;
+}
+
+.controleQtd {
+	display: flex;
+	align-items: center;
+	gap: 0.4em;
+	background-color: #f8f6f0;
+	border: 1px solid #e2dcd5;
+	border-radius: 100px;
+	padding: 0.3em 0.6em;
+}
+
+.btnQtd {
+	background: none;
+	border: none;
+	font-size: 1.3em;
+	font-weight: 700;
+	color: #2b1f1a;
+	cursor: pointer;
+	padding: 0 0.3em;
+	line-height: 1;
+	transition: color 0.2s ease;
+}
+
+.btnQtd:hover {
+	color: #932121;
+}
+
+.inputQtd {
+	width: 40px;
+	text-align: center;
+	border: none;
+	background: transparent;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1em;
+	font-weight: 700;
+	color: #2b1f1a;
+	-moz-appearance: textfield;
+}
+
+.inputQtd::-webkit-outer-spin-button,
+.inputQtd::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.carrinhoItemPreco {
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.6em;
+}
+
+.precoTotal {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.2em;
+	font-weight: 700;
+	color: #2b1f1a;
+}
+
+.btnRemover {
+	background: none;
+	border: none;
+	color: #b5a89e;
+	cursor: pointer;
+	padding: 0.2em;
+	transition: color 0.2s ease;
+}
+
+.btnRemover:hover {
+	color: #932121;
+}
+
+.linkContinuar {
+	color: #7e6f67;
+	text-decoration: none;
+	font-size: 0.95em;
+	font-weight: 600;
+	transition: color 0.2s ease;
+}
+
+.linkContinuar:hover {
+	color: #932121;
+}
+
+.resumoPedido {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	padding: 2em;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+
+position: sticky;
+	top: 90px;
+}
+
+.resumoTitulo {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.4em;
+	color: #2b1f1a;
+	margin-bottom: 1.2em;
+	border-bottom: 2px solid #f8f6f0;
+	padding-bottom: 0.6em;
+}
+
+.resumoLinha {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5em 0;
+	color: #7e6f67;
+	font-size: 1em;
+}
+
+.resumoDivisor {
+	border-color: #e2dcd5;
+	margin: 0.8em 0;
+}
+
+.resumoTotal {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.3em;
+	font-weight: 700;
+	color: #2b1f1a;
+}
+
+.btnCheckout {
+	display: block;
+	width: 100%;
+	text-align: center;
+	background-color: #932121;
+	color: #FDFBF7;
+	text-decoration: none;
+	border-radius: 100px;
+	padding: 1.2em 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.2em;
+	font-weight: 700;
+	margin-top: 1.5em;
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	box-shadow: 0 6px 20px rgba(147, 33, 33, 0.25);
+}
+
+.btnCheckout:hover {
+	background-color: #7a1a1a;
+	color: #FDFBF7;
+	transform: scale(1.02);
+}
+
+.selosConfianca {
+	display: flex;
+	justify-content: center;
+	gap: 1.5em;
+	margin-top: 1.2em;
+}
+
+.seloItem {
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+	font-size: 0.8em;
+	color: #7e6f67;
+}
+
+.seloItem .material-symbols-outlined {
+	font-size: 1.2em;
+}
+
+@media (max-width: 576px) {
+	.carrinhoItem {
+		flex-wrap: wrap;
+		gap: 1em;
+	}
+
+.carrinhoItemPreco {
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+.fotoPlaceholder {
+		width: 70px;
+		height: 70px;
+	}
+}

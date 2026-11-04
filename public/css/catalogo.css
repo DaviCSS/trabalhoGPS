@@ -1,0 +1,171 @@
+.paginaCatalogo {
+	background-color: #f8f6f0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.areaFiltros {
+	background-color: #ffffff;
+	border-bottom: 1px solid #e2dcd5;
+	padding: 0.7em 0;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	box-shadow: 0 2px 10px rgba(43, 31, 26, 0.05);
+}
+
+.filtroBtns {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1em;
+	padding-bottom: 0.5em;
+}
+
+
+
+.btnFiltro {
+	background-color: transparent;
+	color: #7e6f67;
+	border: 1.5px solid #e2dcd5;
+	border-radius: 100px;
+	padding: 0.5em 1.5em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1em;
+	font-weight: 600;
+	cursor: pointer;
+	white-space: nowrap;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.btnFiltro:hover,
+.btnFiltro.ativo {
+	background-color: #4a6741;
+	color: #FDFBF7;
+	border-color: #4a6741;
+}
+
+.tituloCatalogo {
+	font-family: 'Jost', sans-serif;
+	font-size: 2.2em;
+	color: #2b1f1a;
+	margin: 1.5em 0 1em;
+}
+
+.cardProduto {
+	background-color: #ffffff;
+	border: none;
+	border-radius: 24px;
+	overflow: hidden;
+	transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	box-shadow: 0 4px 15px rgba(43, 31, 26, 0.04);
+}
+
+.cardProduto:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 16px 32px rgba(43, 31, 26, 0.08);
+}
+
+.imagemProduto {
+	width: 100%;
+	height: 200px;
+	background-color: #f5e8e8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.imagemProduto .material-symbols-outlined {
+	font-size: 4em;
+	color: #932121;
+}
+
+.infoProduto {
+	padding: 1.5em;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.infoProduto h3 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.3em;
+	color: #2b1f1a;
+	margin-bottom: 0.3em;
+}
+
+.artesaNome {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.9em;
+	color: #7e6f67;
+	margin-bottom: 1em;
+}
+
+.precoProduto {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.6em;
+	font-weight: 700;
+	color: #4a6741;
+	margin-bottom: 1.2em;
+	margin-top: auto;
+}
+
+.btnCarrinho {
+	background-color: #4a6741;
+	color: #FDFBF7;
+	border: none;
+	border-radius: 100px;
+	padding: 1em;
+	font-family: 'Jost', sans-serif;
+	font-size: 1.2em;
+	font-weight: 500;
+	cursor: pointer;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	transition: background-color 0.2s ease;
+}
+
+.btnCarrinho:hover:not(:disabled) {
+	background-color: #384e31;
+}
+
+.card-esgotado {
+	opacity: 0.85;
+}
+
+.card-esgotado .imagemProduto {
+	filter: grayscale(100%);
+}
+
+.badge-esgotado {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background-color: #2b1f1a;
+	color: #FDFBF7;
+	padding: 0.5em 1.2em;
+	border-radius: 100px;
+	font-family: 'Jost', sans-serif;
+	font-weight: 700;
+	font-size: 0.9em;
+	z-index: 2;
+	box-shadow: 0 4px 10px rgba(43, 31, 26, 0.3);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.btnCarrinho:disabled {
+	background-color: #e2dcd5;
+	color: #7e6f67;
+	cursor: not-allowed;
+	box-shadow: none;
+}

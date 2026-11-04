@@ -1,0 +1,321 @@
+.paginaFormulario {
+	background-color: #FDFBF7;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.areaLogin {
+	flex: 1;
+	display: flex;
+	align-items: stretch;
+}
+
+.painelMotivacional {
+	background-color: #932121;
+	background-image: linear-gradient(160deg, #932121 0%, #2b1f1a 100%);
+	color: #FDFBF7;
+	padding: 4em 3em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 42%;
+	flex-shrink: 0;
+}
+
+.painelMotivacional .logoLogin {
+	font-family: 'Jost', sans-serif;
+	font-size: 2.2em;
+	font-weight: 400;
+	margin-bottom: 2em;
+}
+
+.painelMotivacional h2 {
+	font-family: 'Jost', sans-serif;
+	font-size: 2em;
+	font-weight: 400;
+	line-height: 1.3;
+	margin-bottom: 1em;
+}
+
+.painelMotivacional h2 strong {
+	font-weight: 700;
+}
+
+.painelMotivacional p {
+	font-size: 1.05em;
+	color: #f0e6e6;
+	line-height: 1.6;
+	margin-bottom: 2em;
+}
+
+.listaPainel {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8em;
+}
+
+.listaPainel li {
+	display: flex;
+	align-items: center;
+	gap: 0.6em;
+	font-size: 0.95em;
+	color: #f5e8e8;
+}
+
+.listaPainel .material-symbols-outlined {
+	font-size: 1.1em;
+	color: #f5c8c8;
+}
+
+.painelFormLogin {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 3em 2em;
+}
+
+.cardFormulario {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 24px;
+	padding: 2.5em 2em;
+	width: 100%;
+	max-width: 420px;
+	box-shadow: 0 8px 30px rgba(43, 31, 26, 0.07);
+}
+
+.cabecalhoLogin {
+	text-align: center;
+	margin-bottom: 1.8em;
+}
+
+.iconeLogin {
+	width: 65px;
+	height: 65px;
+	background-color: #fdf6f6;
+	color: #932121;
+	border-radius: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2em;
+	margin: 0 auto 0.8em;
+}
+
+.cabecalhoLogin h2 {
+	font-family: 'Jost', sans-serif;
+	color: #2b1f1a;
+	font-size: 2em;
+	font-weight: 500;
+	margin-bottom: 0.2em;
+}
+
+.cabecalhoLogin p {
+	color: #7e6f67;
+	font-size: 1.1em;
+	margin: 0;
+}
+
+.grupoForm label {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 600;
+	color: #2b1f1a;
+	font-size: 0.95em;
+	margin-bottom: 0.3em;
+	display: block;
+}
+
+.inputGrande {
+	border: 1.5px solid #e2dcd5;
+	border-radius: 12px;
+	padding: 0.85em 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	color: #2b1f1a;
+	background-color: #FDFBF7;
+	width: 100%;
+	transition: border-color 0.2s ease;
+}
+
+.inputGrande:focus {
+	outline: none;
+	border-color: #932121;
+	background-color: #ffffff;
+}
+
+.inputGrande::placeholder {
+	color: #b5a89e;
+}
+
+.linhaEsqueci {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: 0.3em;
+}
+
+.linhaEsqueci label {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 600;
+	color: #2b1f1a;
+	font-size: 0.95em;
+}
+
+.linkEsqueci {
+	font-size: 0.85em;
+	color: #932121;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.linkEsqueci:hover {
+	text-decoration: underline;
+}
+
+.btnEntrar {
+	background-color: #932121;
+	color: #FDFBF7;
+	border: 2px solid transparent;
+	border-radius: 100px;
+	padding: 1.1em 2em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	font-weight: 700;
+	cursor: pointer;
+	width: 100%;
+	transition: background-color 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btnEntrar:hover {
+	background-color: #7a1a1a;
+	transform: scale(1.02);
+}
+
+.btnEntrarCliente {
+	background-color: transparent;
+	color: #2b1f1a;
+	border: 2px solid #2b1f1a;
+	border-radius: 100px;
+	padding: 1.1em 2em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	font-weight: 700;
+	cursor: pointer;
+	width: 100%;
+	transition: background-color 0.2s ease, color 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btnEntrarCliente:hover {
+	background-color: #4a6741 !important; 
+	border-color: #4a6741 !important;
+	color: #fdfbf7 !important;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(74, 103, 65, 0.25);
+}
+
+.btnCriarConta {
+	background-color: transparent;
+	color: #932121;
+	border: 2px solid #932121;
+	border-radius: 100px;
+	padding: 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	font-weight: 700;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btnCriarConta:hover {
+	background-color: #932121;
+	color: #FDFBF7;
+}
+
+.separadorOu {
+	text-align: center;
+	color: #b5a89e;
+	font-size: 0.85em;
+	margin: 1.2em 0;
+	position: relative;
+}
+
+.separadorOu::before,
+.separadorOu::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	width: 40%;
+	height: 1px;
+	background-color: #e2dcd5;
+}
+
+.separadorOu::before { left: 0; }
+.separadorOu::after  { right: 0; }
+
+.grupoCadastro {
+	display: flex;
+	flex-direction: column;
+	gap: 0.7em;
+}
+
+.btnCadastro {
+	border: 1.5px solid #e2dcd5;
+	background-color: #FDFBF7;
+	border-radius: 100px;
+	padding: 0.8em 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.95em;
+	font-weight: 700;
+	cursor: pointer;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	color: #2b1f1a;
+	display: block;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.btnCadastro:hover {
+	border-color: #932121;
+	color: #932121;
+	background-color: #fdf6f6;
+}
+
+@media (max-width: 768px) {
+	.painelMotivacional {
+		display: none;
+	}
+
+.areaLogin {
+		align-items: center;
+		justify-content: center;
+		padding: 2em 1em;
+	}
+
+.painelFormLogin {
+		padding: 1em;
+	}
+
+.cardFormulario {
+		padding: 2em 1.3em;
+		border-radius: 18px;
+		border: none;
+		box-shadow: none;
+	}
+}

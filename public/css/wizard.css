@@ -1,0 +1,515 @@
+.paginaCadastroProduto {
+	background-color: #f8f6f0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.cabecalhoProduto {
+	background: linear-gradient(160deg, #932121 0%, #7a1a1a 100%);
+	color: #FDFBF7;
+	padding: 2em 1.5em 2em;
+	text-align: center;
+}
+
+.cabecalhoProduto h2 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.6em;
+	margin-bottom: 0.2em;
+	font-weight: 500;
+}
+
+.cabecalhoProduto p {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.95em;
+	color: #f5c8c8;
+	margin: 0;
+}
+
+.wizardProgresso {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5em 1em 0.5em;
+	gap: 0;
+	max-width: 420px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.wizardEtapa {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4em;
+	flex: 1;
+	position: relative;
+}
+
+.wizardEtapa::before {
+	content: '';
+	position: absolute;
+	top: 18px;
+	left: calc(-50% + 18px);
+	right: calc(50% + 18px);
+	height: 2px;
+	background-color: #e2dcd5;
+	transition: background-color 0.3s ease;
+	z-index: 0;
+}
+
+.wizardEtapa:first-child::before {
+	display: none;
+}
+
+.wizardBolinha {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Jost', sans-serif;
+	font-size: 0.9em;
+	font-weight: 700;
+	background-color: #e2dcd5;
+	color: #7e6f67;
+	border: 2px solid #e2dcd5;
+	transition: all 0.3s ease;
+	position: relative;
+	z-index: 1;
+}
+
+.wizardEtapa.ativa .wizardBolinha {
+	background-color: #932121;
+	color: #FDFBF7;
+	border-color: #932121;
+	box-shadow: 0 0 0 4px rgba(147, 33, 33, 0.15);
+}
+
+.wizardEtapa.concluida .wizardBolinha {
+	background-color: #4a6741;
+	color: #FDFBF7;
+	border-color: #4a6741;
+}
+
+.wizardEtapa.concluida::before {
+	background-color: #4a6741;
+}
+
+.wizardRotulo {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.72em;
+	color: #b5a89e;
+	text-align: center;
+	font-weight: 600;
+	line-height: 1.2;
+	max-width: 70px;
+}
+
+.wizardEtapa.ativa .wizardRotulo {
+	color: #932121;
+	font-weight: 700;
+}
+
+.wizardEtapa.concluida .wizardRotulo {
+	color: #4a6741;
+}
+
+.wizardContador {
+	text-align: center;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.82em;
+	color: #7e6f67;
+	font-weight: 600;
+	padding: 0.5em;
+}
+
+.areaWizard {
+	max-width: 600px;
+	margin: 0 auto 4em;
+	width: 100%;
+	padding: 0 1em;
+}
+
+.wizardPasso {
+	display: none;
+	animation: fadeInPasso 0.3s ease;
+}
+
+.wizardPasso.ativo {
+	display: block;
+}
+
+@keyframes fadeInPasso {
+	from { opacity: 0; transform: translateY(10px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+.wizardCard {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 24px;
+	padding: 2em 1.8em;
+	box-shadow: 0 8px 24px rgba(43, 31, 26, 0.07);
+	margin-top: 1.5em;
+}
+
+.wizardTituloPasso {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.3em;
+	color: #2b1f1a;
+	margin-bottom: 0.3em;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	gap: 0.4em;
+}
+
+.wizardTituloPasso .material-symbols-outlined {
+	color: #932121;
+	font-size: 1.1em;
+}
+
+.wizardDescPasso {
+	font-family: 'Quicksand', sans-serif;
+	color: #7e6f67;
+	font-size: 0.9em;
+	margin-bottom: 1.4em;
+	line-height: 1.5;
+}
+
+.inputGigante {
+	border: 2px solid #e2dcd5;
+	border-radius: 16px;
+	padding: 1em 1.3em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1em;
+	color: #2b1f1a;
+	background-color: #f8f6f0;
+	width: 100%;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+	min-height: 52px; 
+}
+
+.inputGigante:focus {
+	outline: none;
+	border-color: #932121;
+	background-color: #ffffff;
+}
+
+.inputGigante::placeholder {
+	color: #b5a89e;
+}
+
+.labelGigante {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.05em;
+	color: #2b1f1a;
+	margin-bottom: 0.5em;
+	font-weight: 600;
+	display: block;
+}
+
+.badgeObrigatorioProduto {
+	font-size: 0.65em;
+	background-color: #fdf6f6;
+	color: #932121;
+	padding: 0.25em 0.7em;
+	border-radius: 100px;
+	vertical-align: middle;
+	margin-left: 0.5em;
+	font-weight: 700;
+}
+
+.areaUpload {
+	border: 3px dashed #b5a89e;
+	border-radius: 20px;
+	padding: 2.5em 1.5em;
+	text-align: center;
+	background-color: #f8f6f0;
+	cursor: pointer;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+	position: relative;
+}
+
+.areaUpload:hover {
+	border-color: #932121;
+	background-color: #fdf6f6;
+}
+
+.areaUpload input[type="file"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.iconeUpload {
+	font-size: 3.5em;
+	color: #932121;
+	margin-bottom: 0.3em;
+}
+
+.instrucaoUpload {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.1em;
+	color: #2b1f1a;
+	font-weight: 600;
+	margin-bottom: 0.3em;
+}
+
+.dicaUpload {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.85em;
+	color: #7e6f67;
+}
+
+.previewFoto {
+	display: none;
+	margin-top: 1em;
+	border-radius: 16px;
+	overflow: hidden;
+	border: 2px solid #e2dcd5;
+}
+
+.previewFoto img {
+	width: 100%;
+	max-height: 280px;
+	object-fit: cover;
+	display: block;
+}
+
+.areaBotaoVoz {
+	display: flex;
+	gap: 0.8em;
+	margin-bottom: 1em;
+}
+
+.btnVoz {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	background-color: #fdf6f6;
+	color: #932121;
+	border: 2px solid #f5e8e8;
+	border-radius: 100px;
+	padding: 0.75em 1.4em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.9em;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+	min-height: 50px;
+	white-space: nowrap;
+}
+
+.btnVoz:hover {
+	background-color: #f5e8e8;
+	border-color: #932121;
+	transform: scale(1.02);
+}
+
+.btnVoz.escutando {
+	background-color: #932121;
+	color: #FDFBF7;
+	border-color: #932121;
+	animation: pulseVoz 1.2s infinite;
+}
+
+@keyframes pulseVoz {
+	0%   { box-shadow: 0 0 0 0 rgba(147, 33, 33, 0.4); }
+	70%  { box-shadow: 0 0 0 10px rgba(147, 33, 33, 0); }
+	100% { box-shadow: 0 0 0 0 rgba(147, 33, 33, 0); }
+}
+
+.btnVoz .material-symbols-outlined {
+	font-size: 1.3em;
+}
+
+.statusVoz {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.82em;
+	color: #7e6f67;
+	margin-top: 0.5em;
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+}
+
+.statusVoz.ativo {
+	color: #932121;
+	font-weight: 600;
+}
+
+.wizardNavegacao {
+	display: flex;
+	gap: 1em;
+	margin-top: 1.5em;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.btnWizardProximo {
+	background-color: #932121;
+	color: #FDFBF7;
+	border: none;
+	border-radius: 100px;
+	padding: 0.9em 2em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1em;
+	font-weight: 700;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	min-height: 52px;
+	flex: 1;
+	justify-content: center;
+	max-width: 260px;
+}
+
+.btnWizardProximo:hover {
+	background-color: #7a1a1a;
+	transform: scale(1.02);
+}
+
+.btnWizardVoltar {
+	background-color: transparent;
+	color: #7e6f67;
+	border: 1.5px solid #e2dcd5;
+	border-radius: 100px;
+	padding: 0.9em 1.5em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1em;
+	font-weight: 600;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	transition: border-color 0.2s ease, color 0.2s ease;
+	min-height: 52px;
+}
+
+.btnWizardVoltar:hover {
+	border-color: #932121;
+	color: #932121;
+}
+
+.btnPublicar {
+	background-color: #2b1f1a;
+	color: #FDFBF7;
+	border: none;
+	border-radius: 100px;
+	padding: 1em 2.5em;
+	font-family: 'Jost', sans-serif;
+	font-size: 1.1em;
+	font-weight: 600;
+	cursor: pointer;
+	width: 100%;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	box-shadow: 0 8px 24px rgba(43, 31, 26, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	min-height: 60px;
+}
+
+.btnPublicar:hover {
+	background-color: #1a1210;
+	transform: scale(1.02);
+}
+
+.opcoesPrazo {
+	display: flex;
+	flex-direction: column;
+	gap: 0.7em;
+}
+
+.cardOpcao {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	border: 2px solid #e2dcd5;
+	border-radius: 16px;
+	padding: 1em 1.3em;
+	cursor: pointer;
+	background-color: #f8f6f0;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+	min-height: 60px;
+}
+
+.cardOpcao:hover {
+	border-color: #932121;
+	background-color: #fdf6f6;
+}
+
+.cardOpcao input[type="radio"] {
+	accent-color: #932121;
+	width: 20px;
+	height: 20px;
+	flex-shrink: 0;
+}
+
+.cardOpcao input[type="radio"]:checked + .cardOpcaoTexto {
+	color: #932121;
+}
+
+.cardOpcao:has(input:checked) {
+	border-color: #932121;
+	background-color: #fdf6f6;
+}
+
+.cardOpcaoTexto {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.95em;
+	font-weight: 700;
+	color: #2b1f1a;
+}
+
+.cardOpcaoTexto small {
+	display: block;
+	font-weight: 500;
+	color: #7e6f67;
+	font-size: 0.85em;
+	margin-top: 0.1em;
+}
+
+@media (max-width: 576px) {
+	.wizardCard {
+		padding: 1.5em 1.2em;
+	}
+
+.wizardRotulo {
+		font-size: 0.65em;
+	}
+
+.wizardNavegacao {
+		flex-direction: column-reverse;
+	}
+
+.btnWizardProximo {
+		max-width: 100%;
+		width: 100%;
+	}
+
+.btnWizardVoltar {
+		width: 100%;
+		justify-content: center;
+	}
+
+.areaBotaoVoz {
+		flex-direction: column;
+	}
+
+.btnVoz {
+		width: 100%;
+		justify-content: center;
+	}
+}

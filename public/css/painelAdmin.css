@@ -1,0 +1,715 @@
+.paginaAdmin {
+	background-color: #f8f6f0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.navBarAdmin {
+	display: flex;
+	align-items: center;
+	gap: 1.5em;
+	background-color: #2b1f1a;
+	padding: 0.8em 2em;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	flex-wrap: wrap;
+}
+
+.navBarAdmin .logo {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	color: #FDFBF7;
+	flex: none;
+}
+
+.navBarAdmin .logo h1 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.6em;
+	margin: 0;
+}
+
+.badgeAdmin {
+	background-color: #932121;
+	color: #FDFBF7;
+	font-size: 0.65em;
+	font-weight: 700;
+	padding: 0.25em 0.7em;
+	border-radius: 100px;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.navAdmin {
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+	flex: 1;
+	justify-content: center;
+}
+
+.navAdminLink {
+	color: #b5a89e;
+	text-decoration: none;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 600;
+	font-size: 0.95em;
+	padding: 0.5em 1em;
+	border-radius: 100px;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navAdminLink:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #FDFBF7;
+}
+
+.navAdminLinkAtivo {
+	background-color: rgba(147, 33, 33, 0.5);
+	color: #FDFBF7;
+}
+
+.navAdminPerfil {
+	display: flex;
+	align-items: center;
+	gap: 0.4em;
+	flex: none;
+}
+
+.adminNome {
+	color: #FDFBF7;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.9em;
+	font-weight: 600;
+}
+
+.adminBanner {
+	background: linear-gradient(135deg, #932121, #7a1a1a);
+	padding: 1.5em 0;
+	border-bottom: 4px solid #5c1414;
+}
+
+.adminBanner .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
+.adminBannerTexto h2 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.5em;
+	color: #FDFBF7;
+	margin: 0;
+}
+
+.adminBannerTexto p {
+	font-size: 0.9em;
+	color: #f5c8c8;
+	margin: 0.3em 0 0 0;
+}
+
+.adminBannerAlerta {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	background-color: rgba(253, 251, 247, 0.15);
+	padding: 0.6em 1.2em;
+	border-radius: 100px;
+	color: #FDFBF7;
+	font-size: 0.9em;
+	font-weight: 600;
+}
+
+.adminBannerAlerta .material-symbols-outlined {
+	font-size: 1.2em;
+}
+
+.secaoTituloAdmin {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.3em;
+	color: #2b1f1a;
+	margin-bottom: 1.2em;
+	display: flex;
+	align-items: center;
+}
+
+.cardAdmin {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	padding: 1.2em;
+	display: flex;
+	align-items: center;
+	gap: 0.8em;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+	height: 100%;
+
+border-left: 5px solid #e2dcd5;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cardAdmin:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 24px rgba(43, 31, 26, 0.1);
+}
+
+.cardAdmin-artesa {
+	border-left-color: #932121;
+}
+
+.cardAdmin-cliente {
+	border-left-color: #4a6741;
+}
+
+.cardAdmin-vendas {
+	border-left-color: #856404;
+}
+
+.cardAdmin-pedidos {
+	border-left-color: #004085;
+}
+
+.cardAdminIcone {
+	width: 60px;
+	height: 60px;
+	border-radius: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.cardAdmin-artesa .cardAdminIcone {
+	background-color: #fdf6f6;
+	color: #932121;
+}
+
+.cardAdmin-cliente .cardAdminIcone {
+	background-color: #eaf0ea;
+	color: #4a6741;
+}
+
+.cardAdmin-vendas .cardAdminIcone {
+	background-color: #fff3cd;
+	color: #856404;
+}
+
+.cardAdmin-pedidos .cardAdminIcone {
+	background-color: #cce5ff;
+	color: #004085;
+}
+
+.cardAdminIcone .material-symbols-outlined {
+	font-size: 1.8em;
+}
+
+.cardAdminDados {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2em;
+}
+
+.cardAdminNumero {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.5em;
+	font-weight: 700;
+	color: #2b1f1a;
+	line-height: 1;
+	word-break: break-word;
+}
+
+.cardAdminRotulo {
+	font-size: 0.85em;
+	color: #7e6f67;
+	font-weight: 600;
+}
+
+.cardAdminDetalhe {
+	font-size: 0.8em;
+	color: #b5a89e;
+	display: flex;
+	align-items: center;
+	gap: 0.2em;
+	margin-top: 0.2em;
+}
+
+.tendencia-alta {
+	color: #4a6741;
+}
+
+.adminCard {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+}
+
+.adminCardCabecalho {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.2em 1.5em;
+	border-bottom: 1px solid #f8f6f0;
+	background-color: #fdfbf7;
+	flex-wrap: wrap;
+	gap: 0.5em;
+}
+
+.adminCardCabecalho h3 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.1em;
+	color: #2b1f1a;
+	margin: 0;
+	display: flex;
+	align-items: center;
+}
+
+.linkVerTodos {
+	font-size: 0.85em;
+	color: #932121;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.linkVerTodos:hover {
+	text-decoration: underline;
+}
+
+.badge-vermelho {
+	background-color: #f8d7da;
+	color: #721c24;
+}
+
+.badge-azul-admin {
+	background-color: #cce5ff;
+	color: #004085;
+}
+
+.aprovacaoItem {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	padding: 1em 1.5em;
+	border-bottom: 1px solid #f8f6f0;
+	flex-wrap: wrap;
+}
+
+.aprovacaoItem:last-child {
+	border-bottom: none;
+}
+
+.aprovacaoAvatar {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background-color: #f5e8e8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	color: #932121;
+}
+
+.aprovacaoInfo {
+	flex: 1;
+	min-width: 160px;
+}
+
+.aprovacaoInfo strong {
+	font-family: 'Jost', sans-serif;
+	font-size: 1em;
+	color: #2b1f1a;
+	display: block;
+	margin-bottom: 0.2em;
+}
+
+.aprovacaoInfo span {
+	font-size: 0.85em;
+	color: #7e6f67;
+}
+
+.aprovacaoAcoes {
+	display: flex;
+	gap: 0.5em;
+}
+
+.btnAprovacao {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
+	border: none;
+	border-radius: 100px;
+	padding: 0.5em 1.1em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.9em;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.btnAprovar {
+	background-color: #4a6741;
+	color: #FDFBF7;
+}
+
+.btnAprovar:hover {
+	background-color: #3a5233;
+}
+
+.btnRejeitar {
+	background-color: transparent;
+	color: #7e6f67;
+	border: 1.5px solid #e2dcd5;
+}
+
+.btnRejeitar:hover {
+	background-color: #f8d7da;
+	color: #721c24;
+	border-color: #f5c2c7;
+}
+
+.tabelaAdmin {
+	margin: 0;
+}
+
+.tabelaAdmin thead th {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #7e6f67;
+	font-weight: 700;
+	padding: 0.9em 1.5em;
+	border-bottom: 2px solid #f8f6f0;
+	background-color: #fdfbf7;
+}
+
+.tabelaAdmin tbody td {
+	padding: 1em 1.5em;
+	vertical-align: middle;
+	font-size: 0.95em;
+	border-bottom: 1px solid #f8f6f0;
+}
+
+.tabelaAdmin tbody tr:last-child td {
+	border-bottom: none;
+}
+
+.tabelaAdmin tbody tr:hover {
+	background-color: #fdfbf7;
+}
+
+.acoesRapidas {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.8em;
+	padding: 1.2em;
+}
+
+.acaoRapida {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.6em;
+	padding: 1.2em 0.8em;
+	background-color: #f8f6f0;
+	border-radius: 14px;
+	text-decoration: none;
+	color: #2b1f1a;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.9em;
+	font-weight: 700;
+	text-align: center;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.acaoRapida:hover {
+	background-color: #e2dcd5;
+	color: #2b1f1a;
+	transform: scale(1.03);
+}
+
+.acaoRapidaIcone {
+	width: 48px;
+	height: 48px;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.acaoRapidaIcone .material-symbols-outlined {
+	font-size: 1.5em;
+}
+
+.clienteResumoItem {
+	display: flex;
+	align-items: center;
+	gap: 0.8em;
+	padding: 0.9em 1.5em;
+	border-bottom: 1px solid #f8f6f0;
+}
+
+.clienteResumoItem:last-child {
+	border-bottom: none;
+}
+
+.clienteAvatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.clienteAvatar .material-symbols-outlined {
+	font-size: 1.3em;
+}
+
+.clienteResumoItem strong {
+	font-size: 0.95em;
+	color: #2b1f1a;
+	display: block;
+}
+
+.clienteResumoItem span {
+	font-size: 0.8em;
+	color: #7e6f67;
+}
+
+@media (max-width: 768px) {
+	.navBarAdmin {
+		flex-direction: column;
+		padding: 1em;
+		gap: 0.8em;
+	}
+
+.navAdmin {
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.3em;
+	}
+
+.adminBanner .container {
+		flex-direction: column;
+		text-align: center;
+	}
+
+.cardAdmin {
+		border-left: none;
+		border-top: 5px solid #e2dcd5;
+	}
+
+.cardAdmin-artesa {
+		border-top-color: #932121;
+	}
+
+.cardAdmin-cliente {
+		border-top-color: #4a6741;
+	}
+
+.cardAdmin-vendas {
+		border-top-color: #856404;
+	}
+
+.cardAdmin-pedidos {
+		border-top-color: #004085;
+	}
+}
+
+@media (max-width: 576px) {
+	.aprovacaoItem {
+		flex-wrap: wrap;
+	}
+
+.aprovacaoAcoes {
+		width: 100%;
+		justify-content: flex-end;
+	}
+}
+
+.bannerAjudante {
+		background: linear-gradient(135deg, #2b1f1a 0%, #1a1210 100%);
+		padding: 1.5em 1.5em 1.2em;
+		border-bottom: 4px solid #932121;
+	}
+
+.bannerAjudante .container {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+
+.bannerAjudanteTopo {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 1em;
+	}
+
+.bannerAjudanteIcone {
+		display: flex;
+		align-items: center;
+		gap: 0.6em;
+	}
+
+.bannerAjudanteIcone .material-symbols-outlined {
+		font-size: 1.5em;
+		color: #f5c8c8;
+	}
+
+.bannerAjudanteTexto h2 {
+		font-family: 'Jost', sans-serif;
+		font-size: 1.3em;
+		color: #FDFBF7;
+		margin: 0;
+		font-weight: 600;
+	}
+
+.bannerAjudanteTexto p {
+		color: #b5a89e;
+		font-size: 0.82em;
+		margin: 0.2em 0 0;
+		line-height: 1.4;
+	}
+
+.btnVoltarArtesa {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+		background-color: rgba(253, 251, 247, 0.1);
+		color: #FDFBF7;
+		border: 1.5px solid rgba(253, 251, 247, 0.3);
+		border-radius: 100px;
+		padding: 0.6em 1.3em;
+		font-family: 'Quicksand', sans-serif;
+		font-size: 0.85em;
+		font-weight: 700;
+		text-decoration: none;
+		transition: background-color 0.2s ease, border-color 0.2s ease;
+		min-height: 44px;
+		white-space: nowrap;
+	}
+
+.btnVoltarArtesa:hover {
+		background-color: rgba(253, 251, 247, 0.2);
+		color: #FDFBF7;
+		border-color: rgba(253, 251, 247, 0.6);
+	}
+
+.btnVoltarArtesa .material-symbols-outlined {
+		font-size: 1em;
+	}
+
+.bannerAjudanteAviso {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		background-color: rgba(147, 33, 33, 0.25);
+		border: 1px solid rgba(147, 33, 33, 0.4);
+		border-radius: 12px;
+		padding: 0.6em 1em;
+		color: #f5c8c8;
+		font-family: 'Quicksand', sans-serif;
+		font-size: 0.82em;
+		font-weight: 600;
+	}
+
+.bannerAjudanteAviso .material-symbols-outlined {
+		font-size: 1em;
+		color: #f5c8c8;
+		flex-shrink: 0;
+	}
+
+.secaoConfiguracoes {
+		background-color: #ffffff;
+		border: 1px solid #e2dcd5;
+		border-radius: 20px;
+		overflow: hidden;
+		box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+	}
+
+.secaoConfigHeader {
+		display: flex;
+		align-items: center;
+		gap: 0.8em;
+		padding: 1.2em 1.5em;
+		border-bottom: 1px solid #f8f6f0;
+		background-color: #fdfbf7;
+	}
+
+.secaoConfigHeader h3 {
+		font-family: 'Jost', sans-serif;
+		font-size: 1.05em;
+		color: #2b1f1a;
+		margin: 0;
+	}
+
+.secaoConfigHeader .material-symbols-outlined {
+		color: #7e6f67;
+		font-size: 1.3em;
+	}
+
+.secaoConfigCorpo {
+		padding: 1.5em;
+	}
+
+.campoConfigPlaceholder {
+		background-color: #f8f6f0;
+		border: 1.5px dashed #b5a89e;
+		border-radius: 12px;
+		padding: 1em 1.3em;
+		margin-bottom: 1em;
+		display: flex;
+		align-items: center;
+		gap: 0.8em;
+		color: #7e6f67;
+		font-family: 'Quicksand', sans-serif;
+		font-size: 0.9em;
+	}
+
+.campoConfigPlaceholder .material-symbols-outlined {
+		color: #b5a89e;
+		flex-shrink: 0;
+	}
+
+.badgePlaceholder {
+		background-color: #fff3cd;
+		color: #856404;
+		padding: 0.2em 0.7em;
+		border-radius: 100px;
+		font-size: 0.75em;
+		font-weight: 700;
+		margin-left: auto;
+		white-space: nowrap;
+	}
+
+.notaPlaceholder {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.6em;
+		background-color: #fdf6f6;
+		border: 1px solid #f5e8e8;
+		border-radius: 12px;
+		padding: 1em;
+		color: #7e6f67;
+		font-family: 'Quicksand', sans-serif;
+		font-size: 0.85em;
+		line-height: 1.5;
+	}
+
+.notaPlaceholder .material-symbols-outlined {
+		color: #932121;
+		flex-shrink: 0;
+		font-size: 1.1em;
+		margin-top: 0.1em;
+	}

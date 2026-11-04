@@ -1,0 +1,334 @@
+.homeHero {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	box-shadow: 0 4px 8px #29120f;
+}
+
+.homeHero .heroImage {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.heroTexto {
+	position: absolute;
+	top: 50%;
+	left: 5%;
+	transform: translateY(-50%);
+	width: 50%;
+	max-width: 600px;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.5em;
+}
+
+.heroTexto .badgeDestaque {
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	color: #FDFBF7;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.85em;
+	padding: 0.3em 1em;
+	border-radius: 100px;
+	letter-spacing: 0.05em;
+}
+
+.heroTexto h1 {
+	font-family: 'Jost', sans-serif;
+	font-size: 2.8em;
+	font-weight: 400;
+	line-height: 1.2;
+	margin: 0;
+	color: #FDFBF7;
+	text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.heroTexto h1 span {
+	font-weight: 700;
+	color: #f5c8c8;
+}
+
+.heroTexto p {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	color: #f0e6e6;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 460px;
+	text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+}
+
+@media (max-width: 768px) {
+	.heroTexto {
+		width: 80%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		align-items: center;
+		text-align: center;
+	}
+
+.heroTexto h1 {
+		font-size: 1.8em;
+	}
+
+.heroTexto p {
+		font-size: 0.95em;
+	}
+}
+
+.ctaDivisao {
+	background-color: #FDFBF7;
+	padding: 4em 1em;
+}
+
+.ctaDivisao .tituloSecao {
+	text-align: center;
+	margin-bottom: 2.5em;
+}
+
+.ctaDivisao .tituloSecao h2 {
+	font-family: 'Jost', sans-serif;
+	font-size: 2em;
+	color: #2b1f1a;
+	margin-bottom: 0.3em;
+}
+
+.ctaDivisao .tituloSecao p {
+	color: #7e6f67;
+	font-size: 1.1em;
+}
+
+.cardPerfil {
+	background-color: #ffffff;
+	border: 1.5px solid #e2dcd5;
+	border-radius: 24px;
+	padding: 2.5em 2em;
+	text-align: center;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cardPerfil:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 12px 30px rgba(147, 33, 33, 0.1);
+}
+
+.cardPerfil .iconePerfil {
+	width: 80px;
+	height: 80px;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.2em;
+	margin-bottom: 1em;
+}
+
+.cardPerfil .iconePerfil.artesa {
+	background-color: #fdf6f6;
+	color: #932121;
+}
+
+.cardPerfil .iconePerfil.cliente {
+	background-color: #eaf0ea;
+	color: #4a6741;
+}
+
+.cardPerfil h3 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.5em;
+	color: #2b1f1a;
+	margin-bottom: 0.5em;
+}
+
+.cardPerfil p {
+	color: #7e6f67;
+	font-size: 1em;
+	line-height: 1.5;
+	flex-grow: 1;
+	margin-bottom: 1.5em;
+}
+
+.cardPerfil ul {
+	list-style: none;
+	padding: 0;
+	margin-bottom: 2em;
+	text-align: left;
+	width: 100%;
+}
+
+.cardPerfil ul li {
+	color: #2b1f1a;
+	font-size: 0.95em;
+	padding: 0.3em 0;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.cardPerfil ul li .check {
+	color: #932121;
+	font-weight: 700;
+}
+
+.cardPerfil.destaqueArtesa {
+	border: 3px solid #932121;
+	box-shadow: 0 12px 30px rgba(147, 33, 33, 0.15);
+	padding: 3.5em 2.5em;
+}
+
+.cardPerfil.destaqueArtesa h3 {
+	font-size: 1.8em;
+	font-weight: 700;
+}
+
+.cardPerfil.secundarioCliente {
+	background-color: #fdfdfd;
+	opacity: 0.95;
+	border: 1px solid #e2dcd5;
+	transform: scale(0.95);
+	padding: 2em 1.5em;
+}
+
+.cardPerfil.secundarioCliente:hover {
+	transform: scale(0.98);
+	opacity: 1;
+}
+
+.btnArtesa {
+	background-color: #932121;
+	color: #FDFBF7;
+	border: 2px solid transparent;
+	border-radius: 100px;
+	padding: 1.1em 2em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	font-weight: 700;
+	cursor: pointer;
+	width: 100%;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.btnArtesa:hover {
+	background-color: #7a1a1a;
+	color: #FDFBF7;
+	transform: scale(1.02);
+}
+
+.btnCliente {
+	background-color: transparent;
+	color: #2b1f1a;
+	border: 2px solid #2b1f1a;
+	border-radius: 100px;
+	padding: 1.1em 2em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	font-weight: 700;
+	cursor: pointer;
+	width: 100%;
+	transition: background-color 0.2s ease, color 0.2s ease;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.btnCliente:hover {
+	background-color: #2b1f1a;
+	color: #FDFBF7;
+}
+
+.pilares {
+	background-color: #f8f6f0;
+	padding: 4em 1em;
+}
+
+.pilarCard {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	padding: 2em 1.5em;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.pilarCard .iconePilar {
+	width: 60px;
+	height: 60px;
+	background-color: #fdf6f6;
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.6em;
+	color: #932121;
+	margin: 0 auto 1em;
+}
+
+.pilarCard h4 {
+	font-family: 'Jost', sans-serif;
+	color: #2b1f1a;
+	font-size: 1.15em;
+	margin-bottom: 0.5em;
+}
+
+.pilarCard p {
+	color: #7e6f67;
+	font-size: 0.95em;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.mensagemEmpoderamento {
+	background-color: #932121;
+	padding: 4em 1.5em;
+	text-align: center;
+	color: #FDFBF7;
+}
+
+.mensagemEmpoderamento h2 {
+	font-family: 'Jost', sans-serif;
+	font-size: 2em;
+	font-weight: 400;
+	margin-bottom: 0.5em;
+}
+
+.mensagemEmpoderamento h2 strong {
+	font-weight: 700;
+}
+
+.mensagemEmpoderamento p {
+	font-size: 1.1em;
+	color: #f0e6e6;
+	max-width: 600px;
+	margin: 0 auto 2em;
+	line-height: 1.6;
+}
+
+@media (max-width: 576px) {
+	.homeHero h1 {
+		font-size: 2em;
+	}
+
+.homeHero p {
+		font-size: 1em;
+	}
+
+.ctaDivisao .tituloSecao h2 {
+		font-size: 1.6em;
+	}
+
+.mensagemEmpoderamento h2 {
+		font-size: 1.5em;
+	}
+}

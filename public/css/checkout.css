@@ -1,0 +1,390 @@
+.paginaCheckout {
+	background-color: #f8f6f0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.paginaCheckout .inputGrande:focus {
+	outline: none;
+	border-color: #932121;
+	background-color: #ffffff;
+}
+
+.progressoPedido {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0;
+}
+
+.passoItem {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4em;
+	font-size: 0.85em;
+	color: #b5a89e;
+	font-weight: 600;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.passoItem.passo-ativo {
+	color: #932121;
+}
+
+.passoItem.passo-concluido {
+	color: #4a6741;
+}
+
+.passoBolinha {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #e2dcd5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #b5a89e;
+	transition: background-color 0.3s ease;
+}
+
+.passoBolinha .material-symbols-outlined {
+	font-size: 1.4em;
+}
+
+.passo-ativo .passoBolinha {
+	background-color: #932121;
+	color: #FDFBF7;
+	box-shadow: 0 4px 12px rgba(147, 33, 33, 0.3);
+}
+
+.passo-concluido .passoBolinha {
+	background-color: #4a6741;
+	color: #FDFBF7;
+}
+
+.passoConector {
+	flex: 1;
+	height: 2px;
+	background-color: #e2dcd5;
+	max-width: 60px;
+	margin-bottom: 1.2em;
+}
+
+.passoConector.passo-concluido {
+	background-color: #4a6741;
+}
+
+.checkoutCard {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	padding: 2em;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+}
+
+.checkoutCardTitulo {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.25em;
+	color: #2b1f1a;
+	margin-bottom: 1.2em;
+	border-bottom: 2px solid #f8f6f0;
+	padding-bottom: 0.6em;
+}
+
+.opcoesPagamento {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8em;
+}
+
+.opcaoPagamento {
+
+position: relative;
+}
+
+.opcaoPagamento input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.labelPagamento {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	border: 2px solid #e2dcd5;
+	border-radius: 14px;
+	padding: 1em 1.2em;
+	cursor: pointer;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.labelPagamento strong {
+	font-family: 'Jost', sans-serif;
+	color: #2b1f1a;
+	font-size: 1em;
+	display: block;
+}
+
+.labelPagamento p {
+	margin: 0;
+	font-size: 0.85em;
+	color: #7e6f67;
+}
+
+.opcaoPagamento input[type="radio"]:checked + .labelPagamento {
+	border-color: #932121;
+	background-color: #fdf6f6;
+}
+
+.labelPagamento:hover {
+	border-color: #b5a89e;
+}
+
+.iconePagamento {
+	width: 48px;
+	height: 48px;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.badgeDesconto {
+	background-color: #eaf0ea;
+	color: #4a6741;
+	font-size: 0.75em;
+	font-weight: 700;
+	padding: 0.3em 0.7em;
+	border-radius: 100px;
+	white-space: nowrap;
+}
+
+.resumoPedidoCheckout {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	padding: 2em;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+	position: sticky;
+	top: 90px;
+}
+
+.resumoTituloCheckout {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.4em;
+	color: #2b1f1a;
+	margin-bottom: 1.2em;
+	border-bottom: 2px solid #f8f6f0;
+	padding-bottom: 0.6em;
+}
+
+.resumoItemLista {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6em;
+	margin-bottom: 0.8em;
+}
+
+.resumoItemLinha {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 0.5em;
+}
+
+.resumoItemNome {
+	font-size: 0.9em;
+	color: #7e6f67;
+	flex: 1;
+}
+
+.resumoItemPreco {
+	font-size: 0.95em;
+	font-weight: 700;
+	color: #2b1f1a;
+	white-space: nowrap;
+}
+
+.resumoDivisorCheck {
+	border-color: #e2dcd5;
+	margin: 0.8em 0;
+}
+
+.resumoLinhaCheck {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.4em 0;
+	color: #7e6f67;
+	font-size: 1em;
+}
+
+.resumoTotalCheck {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.3em;
+	font-weight: 700;
+	color: #2b1f1a;
+	margin-top: 0.2em;
+}
+
+.btnFinalizarPedido {
+	display: block;
+	width: 100%;
+	text-align: center;
+	background-color: #932121;
+	color: #FDFBF7;
+	border: none;
+	border-radius: 100px;
+	padding: 1.3em 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.25em;
+	font-weight: 700;
+	margin-top: 1.5em;
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	box-shadow: 0 8px 24px rgba(147, 33, 33, 0.3);
+}
+
+.btnFinalizarPedido:hover {
+	background-color: #7a1a1a;
+	color: #FDFBF7;
+	transform: scale(1.02);
+}
+
+.mensagemSeguranca {
+	text-align: center;
+	font-size: 0.82em;
+	color: #7e6f67;
+	margin-top: 1em;
+	line-height: 1.5;
+}
+
+@media (max-width: 576px) {
+	.progressoPedido {
+		gap: 0;
+	}
+
+.passoConector {
+		max-width: 30px;
+	}
+
+.passoBolinha {
+		width: 40px;
+		height: 40px;
+	}
+
+.passoItem {
+		font-size: 0.75em;
+	}
+
+.checkoutCard {
+		padding: 1.5em 1.2em;
+}
+}
+
+/* Wizard Progress */
+.wizard-progress {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+
+.step-indicator {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #b5a89e;
+	position: relative;
+	z-index: 2;
+}
+
+.step-circle {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #e2dcd5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-family: 'Quicksand', sans-serif;
+	margin-bottom: 0.5em;
+	transition: all 0.3s ease;
+}
+
+.step-indicator span {
+	font-size: 0.9em;
+	font-weight: 600;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.step-indicator.active {
+	color: #932121;
+}
+
+.step-indicator.active .step-circle {
+	background-color: #932121;
+	color: #fff;
+	box-shadow: 0 4px 12px rgba(147, 33, 33, 0.3);
+}
+
+.step-line {
+	flex-grow: 1;
+	height: 3px;
+	background-color: #e2dcd5;
+	margin: 0 15px;
+	position: relative;
+	top: -15px;
+	transition: all 0.3s ease;
+}
+
+.step-line.active {
+	background-color: #932121;
+}
+
+/* Utils */
+.max-w-700 { max-width: 700px; }
+.max-w-800 { max-width: 800px; }
+
+/* Buttons */
+.btnAcaoPrincipal {
+	background-color: #4a6741;
+	color: #FDFBF7;
+	border: none;
+	border-radius: 100px;
+	padding: 0.8em 2em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btnAcaoPrincipal:hover {
+	background-color: #384e31;
+	transform: scale(1.02);
+}
+
+.btnFiltro {
+	background-color: transparent;
+	color: #7e6f67;
+	border: 1.5px solid #e2dcd5;
+	border-radius: 100px;
+	padding: 0.8em 2em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.btnFiltro:hover {
+	background-color: #e2dcd5;
+	color: #2b1f1a;
+}

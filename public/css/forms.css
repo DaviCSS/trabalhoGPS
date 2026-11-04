@@ -1,0 +1,255 @@
+.paginaFormulario {
+	background-color: #FDFBF7;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.areaFormulario {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 3em 1em;
+}
+
+.cardFormulario {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 24px;
+	padding: 2.5em 2em;
+	width: 100%;
+	max-width: 520px;
+	box-shadow: 0 8px 30px rgba(43, 31, 26, 0.07);
+}
+
+.cabecalhoCard {
+	text-align: center;
+	margin-bottom: 1.8em;
+}
+
+.iconeFormulario {
+	width: 70px;
+	height: 70px;
+	border-radius: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2em;
+	margin: 0 auto 0.8em;
+}
+
+.iconeFormulario.artesa {
+	background-color: #fdf6f6;
+	color: #932121;
+}
+
+.iconeFormulario.cliente {
+	background-color: #eaf0ea;
+	color: #4a6741;
+}
+
+.cabecalhoCard h2 {
+	font-family: 'Jost', sans-serif;
+	color: #2b1f1a;
+	font-size: 1.7em;
+	font-weight: 500;
+	margin-bottom: 0.2em;
+}
+
+.cabecalhoCard p {
+	color: #7e6f67;
+	font-size: 0.95em;
+	margin: 0;
+}
+
+.notaRN {
+	border-radius: 0 10px 10px 0;
+	padding: 0.8em 1em;
+	margin-bottom: 1.5em;
+	display: flex;
+	gap: 0.5em;
+	align-items: flex-start;
+}
+
+.notaRN .material-symbols-outlined {
+	font-size: 1.2em;
+	flex-shrink: 0;
+	margin-top: 0.1em;
+}
+
+.notaRN p {
+	margin: 0;
+	font-size: 0.88em;
+	color: #7e6f67;
+	line-height: 1.5;
+}
+
+.notaRN strong {
+	color: #2b1f1a;
+}
+
+.notaRN.artesa {
+	background-color: #fdf6f6;
+	border-left: 3px solid #932121;
+}
+
+.notaRN.artesa .material-symbols-outlined {
+	color: #932121;
+}
+
+.notaRN.cliente {
+	background-color: #f0f5f0;
+	border-left: 3px solid #4a6741;
+}
+
+.notaRN.cliente .material-symbols-outlined {
+	color: #4a6741;
+}
+
+.grupoForm label {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 600;
+	color: #2b1f1a;
+	font-size: 0.95em;
+	margin-bottom: 0.3em;
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+}
+
+.badgeObrigatorio {
+	font-size: 0.7em;
+	background-color: #fdf6f6;
+	color: #932121;
+	border: 1px solid #f5c8c8;
+	border-radius: 100px;
+	padding: 0.1em 0.6em;
+	font-weight: 600;
+}
+
+.inputGrande {
+	border: 1.5px solid #e2dcd5;
+	border-radius: 12px;
+	padding: 0.85em 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1em;
+	color: #2b1f1a;
+	background-color: #FDFBF7;
+	width: 100%;
+	transition: border-color 0.2s ease;
+}
+
+.inputGrande::placeholder {
+	color: #b5a89e;
+}
+
+.paginaArtesa .inputGrande:focus {
+	outline: none;
+	border-color: #932121;
+	background-color: #ffffff;
+}
+
+.paginaCliente .inputGrande:focus {
+	outline: none;
+	border-color: #4a6741;
+	background-color: #ffffff;
+}
+
+select.inputGrande {
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%237e6f67' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 1em center;
+	padding-right: 2.5em;
+}
+
+.separadorSecao {
+	font-family: 'Jost', sans-serif;
+	font-size: 0.85em;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.separadorSecao::after {
+	content: '';
+	flex: 1;
+	height: 1px;
+	background-color: #e2dcd5;
+}
+
+.paginaArtesa .separadorSecao {
+	color: #932121;
+}
+
+.paginaCliente .separadorSecao {
+	color: #4a6741;
+}
+
+.btnSubmit {
+	border: none;
+	border-radius: 100px;
+	padding: 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	font-weight: 700;
+	cursor: pointer;
+	width: 100%;
+	margin-top: 1em;
+	transition: background-color 0.2s ease;
+	color: #FDFBF7;
+}
+
+.btnSubmit.artesa {
+	background-color: #932121;
+}
+
+.btnSubmit.artesa:hover {
+	background-color: #7a1a1a;
+}
+
+.btnSubmit.cliente {
+	background-color: #2b1f1a;
+}
+
+.btnSubmit.cliente:hover {
+	background-color: #1a1210;
+}
+
+.linkRodapeForm {
+	text-align: center;
+	margin-top: 1.2em;
+	font-size: 0.9em;
+	color: #7e6f67;
+}
+
+.linkRodapeForm a {
+	color: #932121;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.linkRodapeForm a:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+	.areaFormulario {
+		padding: 1.5em 0.8em;
+	}
+
+.cardFormulario {
+		padding: 2em 1.3em;
+		border-radius: 18px;
+	}
+
+.cabecalhoCard h2 {
+		font-size: 1.4em;
+	}
+}

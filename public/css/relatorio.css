@@ -1,0 +1,217 @@
+.seletorPeriodo {
+	display: flex;
+	gap: 0.6em;
+	flex-wrap: wrap;
+}
+
+.btnPeriodo {
+	background-color: #ffffff;
+	border: 1.5px solid #e2dcd5;
+	border-radius: 100px;
+	padding: 0.6em 1.4em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1em;
+	font-weight: 600;
+	color: #7e6f67;
+	cursor: pointer;
+	transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btnPeriodo:hover {
+	border-color: #932121;
+	color: #932121;
+}
+
+.btnPeriodoAtivo {
+	background-color: #932121;
+	border-color: #932121;
+	color: #FDFBF7;
+}
+
+.btnPeriodoAtivo:hover {
+	background-color: #7a1a1a;
+	border-color: #7a1a1a;
+	color: #FDFBF7;
+}
+
+.cardMetrica {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	padding: 1.8em 1.5em;
+	text-align: center;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4em;
+}
+
+.metricaIcone {
+	width: 56px;
+	height: 56px;
+	border-radius: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0.5em;
+}
+
+.metricaIcone .material-symbols-outlined {
+	font-size: 1.6em;
+}
+
+.metricaRotulo {
+	font-size: 0.9em;
+	color: #7e6f67;
+	font-weight: 600;
+	margin: 0;
+}
+
+.metricaValor {
+	font-family: 'Jost', sans-serif;
+	font-size: 2.2em;
+	font-weight: 700;
+	color: #932121;
+	line-height: 1.1;
+}
+
+.metricaTendencia {
+	font-size: 0.82em;
+	font-weight: 600;
+	margin: 0;
+}
+
+.tendencia-alta {
+	color: #4a6741;
+}
+
+.tendencia-baixa {
+	color: #932121;
+}
+
+.metricaInfo {
+	font-size: 0.82em;
+	color: #b5a89e;
+	margin: 0;
+}
+
+.tabelaVendas {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.05);
+}
+
+.tabelaVendasCabecalho {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5em 2em;
+	border-bottom: 1px solid #e2dcd5;
+	flex-wrap: wrap;
+	gap: 0.5em;
+}
+
+.tabelaVendasCabecalho h3 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.3em;
+	color: #2b1f1a;
+	margin: 0;
+}
+
+.tabelaSimples {
+	margin: 0;
+}
+
+.tabelaSimples thead th {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #7e6f67;
+	font-weight: 700;
+
+padding: 1em 2em;
+	border-bottom: 2px solid #f8f6f0;
+	background-color: #fdfbf7;
+}
+
+.tabelaSimples tbody td {
+
+padding: 1.2em 2em;
+	vertical-align: middle;
+	color: #2b1f1a;
+	font-size: 1em;
+	border-bottom: 1px solid #f8f6f0;
+}
+
+.tabelaSimples tbody tr:last-child td {
+	border-bottom: none;
+}
+
+.tabelaSimples tbody tr:hover {
+	background-color: #fdfbf7;
+}
+
+.badge-azul-tabela {
+	background-color: #cce5ff;
+	color: #004085;
+}
+
+.tabelaRodape td {
+	padding: 1.2em 2em !important;
+	background-color: #f8f6f0;
+	border-top: 2px solid #e2dcd5;
+}
+
+.totalMes {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.25em;
+	color: #2b1f1a;
+}
+
+.mensagemEncorajadora {
+	background: linear-gradient(135deg, #fdf6f6, #fdfbf7);
+	border: 1px solid #f5c8c8;
+	border-radius: 20px;
+	padding: 1.5em 2em;
+	display: flex;
+	align-items: center;
+	gap: 1.2em;
+}
+
+.mensagemEncorajadora strong {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.1em;
+	color: #2b1f1a;
+	display: block;
+	margin-bottom: 0.3em;
+}
+
+.mensagemEncorajadora p {
+	color: #7e6f67;
+	margin: 0;
+	font-size: 0.95em;
+}
+
+@media (max-width: 768px) {
+	.tabelaSimples thead th,
+	.tabelaSimples tbody td,
+	.tabelaRodape td {
+		padding: 0.9em 1em;
+	}
+
+.tabelaVendasCabecalho {
+		padding: 1.2em 1em;
+	}
+}
+
+@media (max-width: 576px) {
+	.mensagemEncorajadora {
+		flex-direction: column;
+		text-align: center;
+	}
+}

@@ -1,0 +1,245 @@
+.paginaEscolhaConta {
+	background-color: #f8f6f0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.areaEscolha {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 3em 1em;
+}
+
+.escolhaCabecalho {
+	text-align: center;
+	margin-bottom: 2.5em;
+	max-width: 500px;
+}
+
+.escolhaIcone {
+	width: 72px;
+	height: 72px;
+	border-radius: 50%;
+	background-color: #fdf6f6;
+	border: 2px solid #f5c8c8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 0.8em;
+	font-size: 1.8em;
+	color: #932121;
+
+animation: balancear 1.5s ease-in-out infinite;
+}
+
+@keyframes balancear {
+	0%, 100% { transform: rotate(-5deg); }
+	50%       { transform: rotate(5deg); }
+}
+
+.escolhaCabecalho h2 {
+	font-family: 'Jost', sans-serif;
+	font-size: 2em;
+	color: #2b1f1a;
+	margin-bottom: 0.3em;
+}
+
+.escolhaCabecalho p {
+	color: #7e6f67;
+	font-size: 1.05em;
+	line-height: 1.6;
+	margin: 0;
+}
+
+.escolhaCabecalho strong {
+	color: #2b1f1a;
+}
+
+.escolhaCards {
+	display: flex;
+	align-items: stretch;
+	gap: 0;
+	width: 100%;
+	max-width: 820px;
+}
+
+.escolhaDivisor {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+
+width: 60px;
+}
+
+.escolhaDivisor span {
+	background-color: #e2dcd5;
+	color: #7e6f67;
+	font-family: 'Jost', sans-serif;
+	font-size: 0.9em;
+	font-weight: 500;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cardEscolha {
+	flex: 1;
+	background-color: #ffffff;
+	border: 2px solid #e2dcd5;
+	border-radius: 24px;
+	padding: 2.5em 2em;
+	text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2em;
+
+transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+	box-shadow: 0 4px 16px rgba(43, 31, 26, 0.06);
+}
+
+.cardEscolha:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 16px 40px rgba(43, 31, 26, 0.13);
+}
+
+.cardEscolhaArtesa:hover {
+	border-color: #932121;
+}
+
+.cardEscolhaCliente:hover {
+	border-color: #4a6741;
+}
+
+.cardEscolhaIcone {
+	width: 68px;
+	height: 68px;
+	border-radius: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.8em;
+
+}
+
+.cardEscolhaArtesa .cardEscolhaIcone {
+	background-color: #fdf6f6;
+	color: #932121;
+}
+
+.cardEscolhaCliente .cardEscolhaIcone {
+	background-color: #eaf0ea;
+	color: #4a6741;
+}
+
+.cardEscolhaTexto h3 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.6em;
+	color: #2b1f1a;
+	margin: 0 0 0.3em 0;
+}
+
+.cardEscolhaTexto p {
+	color: #7e6f67;
+	font-size: 1em;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.cardEscolhaTexto strong {
+	color: #2b1f1a;
+}
+
+.cardEscolhaLista {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6em;
+}
+
+.cardEscolhaLista li {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	color: #7e6f67;
+	font-size: 0.95em;
+}
+
+.check {
+	font-weight: 700;
+	font-size: 1em;
+}
+
+.cardEscolhaArtesa .check {
+	color: #932121;
+}
+
+.cardEscolhaCliente .check {
+	color: #4a6741;
+}
+
+.cardEscolhaBotao {
+	display: block;
+	text-align: center;
+	border-radius: 100px;
+	padding: 1em 1.5em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.05em;
+	font-weight: 700;
+	margin-top: auto;
+
+}
+
+.cardEscolhaArtesa .cardEscolhaBotao {
+	background-color: #932121;
+	color: #FDFBF7;
+}
+
+.cardEscolhaArtesa:hover .cardEscolhaBotao {
+	background-color: #7a1a1a;
+}
+
+.cardEscolhaCliente .cardEscolhaBotao {
+	background-color: #2b1f1a;
+	color: #FDFBF7;
+}
+
+.cardEscolhaCliente:hover .cardEscolhaBotao {
+	background-color: #1a1210;
+}
+
+.escolhaRodapeLink {
+	text-align: center;
+	margin-top: 2em;
+	font-size: 0.95em;
+	color: #7e6f67;
+}
+
+@media (max-width: 640px) {
+	.escolhaCards {
+		flex-direction: column;
+		gap: 1em;
+	}
+
+.escolhaDivisor {
+		width: 100%;
+		height: 40px;
+	}
+
+.cardEscolha {
+		padding: 2em 1.5em;
+	}
+
+.escolhaCabecalho h2 {
+		font-size: 1.6em;
+	}
+}

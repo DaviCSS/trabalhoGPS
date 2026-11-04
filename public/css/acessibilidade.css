@@ -1,0 +1,310 @@
+/*
+ * acessibilidade.css — Crochettei
+ * ============================================================
+ * Módulo de acessibilidade focado em usuários idosos.
+ * Inclua este arquivo APÓS o stylesheet.css principal para que
+ * as classes de acessibilidade tenham precedência quando ativadas.
+ *
+ * Uso: <link rel="stylesheet" href="/css/acessibilidade.css">
+ * ============================================================
+ */
+
+/* ------------------------------------------------------------------
+   1. TIPOGRAFIA DE ALTA LEGIBILIDADE
+   Usa rem/em para respeitar o zoom do navegador do usuário.
+------------------------------------------------------------------ */
+
+/* Tamanho base mínimo: 18px (1.125rem) para texto corrido */
+.a11y-texto-base {
+    font-size: 1.125rem;       /* 18px com base 16px */
+    line-height: 1.75;         /* Entrelinha generosa para facilitar leitura */
+    letter-spacing: 0.02em;    /* Leve espaçamento entre letras */
+    font-family: 'Segoe UI', Arial, sans-serif; /* Sem serifa, alta clareza */
+}
+
+/* Título de seção acessível */
+.a11y-titulo {
+    font-size: 1.5rem;         /* 24px */
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Texto de apoio / rótulo de campo */
+.a11y-label {
+    font-size: 1rem;           /* 16px mínimo — nunca abaixo disso */
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.4em;
+}
+
+/* ------------------------------------------------------------------
+   2. BOTÕES AMPLIADOS
+   Área de toque mínima de 48×48px (WCAG 2.5.8)
+------------------------------------------------------------------ */
+
+.btn-a11y {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+
+    /* Tamanho mínimo de toque */
+    min-height: 3rem;          /* 48px */
+    min-width: 10rem;          /* Largura confortável */
+    padding: 0.8em 1.6em;
+
+    /* Tipografia legível */
+    font-size: 1.125rem;       /* 18px */
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1;
+
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+
+    /* Transição suave para feedback visual */
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.1s ease;
+}
+
+/* Botão primário — ação principal */
+.btn-a11y-primario {
+    background-color: #7c3aed;   /* Roxo principal */
+    color: #ffffff;
+    border-color: #7c3aed;
+}
+
+.btn-a11y-primario:hover,
+.btn-a11y-primario:focus {
+    background-color: #5b21b6;
+    border-color: #5b21b6;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Botão secundário / cancelar */
+.btn-a11y-secundario {
+    background-color: #f3f4f6;
+    color: #1f2937;
+    border-color: #9ca3af;
+}
+
+.btn-a11y-secundario:hover,
+.btn-a11y-secundario:focus {
+    background-color: #e5e7eb;
+    box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.3);
+}
+
+/* Botão de perigo / remover */
+.btn-a11y-perigo {
+    background-color: #dc2626;
+    color: #ffffff;
+    border-color: #dc2626;
+}
+
+.btn-a11y-perigo:hover,
+.btn-a11y-perigo:focus {
+    background-color: #b91c1c;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.4);
+}
+
+/* Estado desabilitado — visualmente claro */
+.btn-a11y:disabled,
+.btn-a11y[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ------------------------------------------------------------------
+   3. FOCO VISÍVEL (WCAG 2.4.7 — Nível AA)
+   O anel de foco deve ser SEMPRE visível ao navegar pelo teclado.
+------------------------------------------------------------------ */
+
+.btn-a11y:focus-visible,
+.a11y-input:focus-visible,
+.a11y-select:focus-visible {
+    outline: 3px solid #f59e0b; /* Amarelo âmbar — alto contraste em qq fundo */
+    outline-offset: 3px;
+}
+
+/* Remove o outline padrão feio do navegador, mas mantém o customizado */
+.btn-a11y:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ------------------------------------------------------------------
+   4. ALTO CONTRASTE
+   Garante relação de contraste mínima de 4.5:1 (WCAG 1.4.3 AA).
+   Use .a11y-alto-contraste no <body> para ativar o modo.
+------------------------------------------------------------------ */
+
+.a11y-alto-contraste {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+.a11y-alto-contraste a,
+.a11y-alto-contraste a:visited {
+    color: #0000cc !important;   /* Azul escuro — contraste > 7:1 no branco */
+    text-decoration: underline;
+}
+
+.a11y-alto-contraste a:hover,
+.a11y-alto-contraste a:focus {
+    color: #000080 !important;
+}
+
+/* Garante que cards e superfícies também tenham contraste */
+.a11y-alto-contraste .card,
+.a11y-alto-contraste .produto-card {
+    background-color: #ffffff !important;
+    border: 2px solid #111111 !important;
+    color: #111111 !important;
+}
+
+/* ------------------------------------------------------------------
+   5. ALERTAS / FEEDBACK VISUAL
+   Mensagens de feedback claras e perceptíveis para ações do usuário.
+   Ex: "Item adicionado ao carrinho", "Erro ao finalizar pedido".
+------------------------------------------------------------------ */
+
+/* Base dos alertas — sempre visível, com ícone e texto legível */
+.alerta-a11y {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+    border-left: 5px solid currentColor;
+    margin-bottom: 1rem;
+
+    font-size: 1.0625rem;  /* 17px */
+    font-weight: 600;
+    line-height: 1.5;
+
+    /* role="alert" ou aria-live="polite" no HTML correspondente */
+}
+
+/* Sucesso — "Item adicionado!", "Pedido realizado!" */
+.alerta-a11y-sucesso {
+    background-color: #d1fae5;
+    color: #065f46;
+    border-color: #10b981;
+}
+
+.alerta-a11y-sucesso::before {
+    content: "✅ ";
+    font-size: 1.2em;
+    flex-shrink: 0;
+}
+
+/* Aviso — "Carrinho esvaziado", "Estoque limitado" */
+.alerta-a11y-aviso {
+    background-color: #fef9c3;
+    color: #78350f;
+    border-color: #f59e0b;
+}
+
+.alerta-a11y-aviso::before {
+    content: "⚠️ ";
+    font-size: 1.2em;
+    flex-shrink: 0;
+}
+
+/* Erro — "Pagamento recusado", "Campo obrigatório" */
+.alerta-a11y-erro {
+    background-color: #fee2e2;
+    color: #7f1d1d;
+    border-color: #dc2626;
+}
+
+.alerta-a11y-erro::before {
+    content: "❌ ";
+    font-size: 1.2em;
+    flex-shrink: 0;
+}
+
+/* Informação — mensagens neutras */
+.alerta-a11y-info {
+    background-color: #dbeafe;
+    color: #1e3a5f;
+    border-color: #3b82f6;
+}
+
+.alerta-a11y-info::before {
+    content: "ℹ️ ";
+    font-size: 1.2em;
+    flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------------
+   6. CAMPOS DE FORMULÁRIO ACESSÍVEIS
+   Inputs com tamanho de fonte e área de clique confortáveis.
+------------------------------------------------------------------ */
+
+.a11y-input,
+.a11y-select,
+.a11y-textarea {
+    width: 100%;
+    font-size: 1.0625rem;      /* 17px */
+    padding: 0.7em 1em;
+    border: 2px solid #6b7280;
+    border-radius: 0.4rem;
+    background-color: #ffffff;
+    color: #111111;
+    line-height: 1.5;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.a11y-input:focus,
+.a11y-select:focus,
+.a11y-textarea:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
+    outline: none;
+}
+
+.a11y-input[aria-invalid="true"],
+.a11y-select[aria-invalid="true"] {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+}
+
+/* Mensagem de erro inline abaixo do campo */
+.a11y-campo-erro {
+    display: block;
+    color: #b91c1c;
+    font-size: 0.9375rem;  /* 15px */
+    font-weight: 600;
+    margin-top: 0.3em;
+}
+
+/* ------------------------------------------------------------------
+   7. SKIP LINK — Pula para o conteúdo principal (WCAG 2.4.1)
+   Invisível até receber foco pelo Tab.
+------------------------------------------------------------------ */
+
+.a11y-skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background-color: #7c3aed;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    z-index: 9999;
+    border-radius: 0 0 0.5rem 0;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.a11y-skip-link:focus {
+    top: 0;
+}

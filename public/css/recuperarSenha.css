@@ -1,0 +1,197 @@
+.paginaFormulario {
+	background-color: #FDFBF7;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.areaRecuperar {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 3em 1em;
+}
+
+.cardRecuperar {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 24px;
+	padding: 2.8em 2.5em;
+	width: 100%;
+	max-width: 430px;
+	box-shadow: 0 8px 30px rgba(43, 31, 26, 0.07);
+	text-align: center;
+}
+
+.iconeRecuperar {
+	width: 80px;
+	height: 80px;
+	background-color: #fdf6f6;
+	color: #932121;
+	border-radius: 22px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.4em;
+	margin: 0 auto 1em;
+}
+
+.cardRecuperar h2 {
+	font-family: 'Jost', sans-serif;
+	color: #2b1f1a;
+	font-size: 1.7em;
+	font-weight: 500;
+	margin-bottom: 0.4em;
+}
+
+.cardRecuperar > p {
+	color: #7e6f67;
+	font-size: 1em;
+	line-height: 1.6;
+	margin-bottom: 2em;
+}
+
+.grupoForm label {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 600;
+	color: #2b1f1a;
+	font-size: 0.95em;
+	margin-bottom: 0.3em;
+	display: block;
+	text-align: left;
+}
+
+.inputGrande {
+	border: 1.5px solid #e2dcd5;
+	border-radius: 12px;
+	padding: 0.95em 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.05em;
+	color: #2b1f1a;
+	background-color: #FDFBF7;
+	width: 100%;
+	transition: border-color 0.2s ease;
+	text-align: left;
+}
+
+.inputGrande:focus {
+	outline: none;
+	border-color: #932121;
+	background-color: #ffffff;
+}
+
+.inputGrande::placeholder {
+	color: #b5a89e;
+}
+
+.btnRecuperar {
+	background-color: #932121;
+	color: #FDFBF7;
+	border: none;
+	border-radius: 100px;
+	padding: 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1em;
+	font-weight: 700;
+	cursor: pointer;
+	width: 100%;
+	margin-top: 1.2em;
+	transition: background-color 0.2s ease;
+}
+
+.btnRecuperar:hover {
+	background-color: #7a1a1a;
+}
+
+.avisoProcesso {
+	background-color: #f8f6f0;
+	border: 1px solid #e2dcd5;
+	border-radius: 12px;
+	padding: 1em;
+	margin-top: 1.5em;
+	display: flex;
+	gap: 0.6em;
+	align-items: flex-start;
+	text-align: left;
+}
+
+.avisoProcesso .material-symbols-outlined {
+	color: #7e6f67;
+	font-size: 1.2em;
+	flex-shrink: 0;
+	margin-top: 0.1em;
+}
+
+.avisoProcesso p {
+	margin: 0;
+	font-size: 0.85em;
+	color: #7e6f67;
+	line-height: 1.5;
+}
+
+.linkVoltar {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
+	margin-top: 1.5em;
+	color: #932121;
+	font-weight: 700;
+	font-size: 0.95em;
+	text-decoration: none;
+}
+
+.linkVoltar:hover {
+	text-decoration: underline;
+	color: #7a1a1a;
+}
+
+.linkVoltar .material-symbols-outlined {
+	font-size: 1em;
+}
+
+.estadoSucesso {
+	display: none;
+}
+
+.iconeEnviado {
+	width: 80px;
+	height: 80px;
+	background-color: #eaf0ea;
+	color: #4a6741;
+	border-radius: 22px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.4em;
+	margin: 0 auto 1em;
+}
+
+.estadoSucesso h2 {
+	font-family: 'Jost', sans-serif;
+	color: #2b1f1a;
+	font-size: 1.7em;
+	font-weight: 500;
+	margin-bottom: 0.4em;
+}
+
+.estadoSucesso p {
+	color: #7e6f67;
+	font-size: 1em;
+	line-height: 1.6;
+	margin-bottom: 1.5em;
+}
+
+@media (max-width: 576px) {
+	.areaRecuperar {
+		padding: 3em 0.8em 1.5em;
+		align-items: flex-start;
+	}
+
+.cardRecuperar {
+		padding: 2em 1.3em;
+		border-radius: 18px;
+		border: none;
+		box-shadow: none;
+	}
+}

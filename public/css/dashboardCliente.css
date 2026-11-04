@@ -1,0 +1,194 @@
+.paginaDashboardCliente {
+	background-color: #f8f6f0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.bannerCliente {
+	background: linear-gradient(135deg, #4a6741 0%, #384e31 100%);
+	padding: 3.5em 1.5em;
+	text-align: center;
+	color: #f8f6f0;
+	box-shadow: 0 4px 15px rgba(74, 103, 65, 0.1);
+}
+
+.bannerCliente h2 {
+	font-family: 'Jost', sans-serif;
+	font-size: 2.2em;
+	color: #ffffff;
+	margin-bottom: 0.2em;
+	font-weight: 500;
+}
+
+.bannerCliente p {
+	font-size: 1.1em;
+	color: #d1dfcd;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.atalhoCards {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2em;
+}
+
+.cardAtalho {
+	background-color: #ffffff;
+	border: 2px solid #e2dcd5;
+	border-radius: 20px;
+	padding: 1.5em;
+	display: flex;
+	align-items: center;
+	gap: 1.2em;
+	text-decoration: none;
+	color: #2b1f1a;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.03);
+}
+
+.cardAtalho:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 10px 24px rgba(74, 103, 65, 0.1);
+	border-color: #4a6741;
+}
+
+.atalhoDestaque {
+	border-color: #eaf0ea;
+	background-color: #fbfdfa;
+}
+.atalhoDestaque:hover {
+	border-color: #4a6741;
+}
+.atalhoDestaque .iconeAtalho {
+	background-color: #eaf0ea;
+	color: #4a6741;
+}
+
+.atalhoCarrinho:hover {
+	border-color: #932121;
+	box-shadow: 0 10px 24px rgba(147, 33, 33, 0.1);
+}
+.atalhoCarrinho .iconeAtalho {
+	background-color: #fdf6f6;
+	color: #932121;
+}
+
+.atalhoDados:hover {
+	border-color: #b5a89e;
+	box-shadow: 0 10px 24px rgba(43, 31, 26, 0.06);
+}
+.atalhoDados .iconeAtalho {
+	background-color: #f0edea;
+	color: #2b1f1a;
+}
+
+.iconeAtalho {
+	width: 64px;
+	height: 64px;
+	border-radius: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.iconeAtalho .material-symbols-outlined {
+	font-size: 2em;
+}
+
+.textoAtalho h3 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.3em;
+	margin: 0 0 0.2em 0;
+	color: #2b1f1a;
+}
+
+.textoAtalho p {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.95em;
+	color: #7e6f67;
+	margin: 0;
+}
+
+.pedidosClienteBox {
+	background-color: #ffffff;
+	border: 1px solid #e2dcd5;
+	border-radius: 20px;
+	padding: 1.5em;
+	box-shadow: 0 4px 12px rgba(43, 31, 26, 0.03);
+}
+
+.pedidosClienteBox h3 {
+	font-family: 'Jost', sans-serif;
+	font-size: 1.5em;
+	color: #2b1f1a;
+	margin-bottom: 1em;
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+}
+
+.pedidoClienteItem {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.2em 0;
+	border-bottom: 1px solid #f8f6f0;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
+.pedidoClienteItem:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.pedidoClienteInfo strong {
+	display: block;
+	font-family: 'Jost', sans-serif;
+	font-size: 1.1em;
+	color: #2b1f1a;
+	margin-bottom: 0.2em;
+}
+
+.pedidoClienteInfo span {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.9em;
+	color: #7e6f67;
+}
+
+.badgeStatusCliente {
+	padding: 0.5em 1em;
+	border-radius: 100px;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.85em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.badge-amarelo {
+	background-color: #fff3cd;
+	color: #856404;
+}
+.badge-azul {
+	background-color: #cce5ff;
+	color: #004085;
+}
+.badge-verde {
+	background-color: #d4edda;
+	color: #155724;
+}
+
+@media (min-width: 768px) {
+	.atalhoCards {
+		flex-direction: row;
+	}
+	.cardAtalho {
+		flex: 1;
+		flex-direction: column;
+		text-align: center;
+		padding: 2em 1.5em;
+	}
+}

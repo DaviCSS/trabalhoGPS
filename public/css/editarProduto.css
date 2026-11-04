@@ -1,0 +1,180 @@
+.btnSalvarGigante {
+    background-color: #4a6741;
+    color: #FDFBF7;
+    border-radius: 100px;
+    padding: 1.2em 3em;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.3em;
+    font-weight: 700;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 8px 24px rgba(74, 103, 65, 0.3);
+    border: none;
+}
+
+.btnSalvarGigante:hover {
+    background-color: #384e31;
+    color: #FDFBF7;
+    transform: scale(1.02);
+}
+
+.btnExcluirGigante {
+    background-color: transparent;
+    color: #932121;
+    border: 2px solid #932121;
+    border-radius: 100px;
+    padding: 1em 2em;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    width: 100%;
+    max-width: 400px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btnExcluirGigante:hover {
+    background-color: #fdf6f6;
+    color: #7a1a1a;
+    border-color: #7a1a1a;
+}
+
+.uploadPreenchido {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    background-color: #e2dcd5;
+}
+
+.uploadPreenchido .img-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.overlayTrocarFoto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 31, 26, 0.6);
+    color: #FDFBF7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.uploadPreenchido:hover .overlayTrocarFoto {
+    opacity: 1;
+}
+
+.uploadPreenchido input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.modalFeedback {
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 15px 40px rgba(43, 31, 26, 0.15);
+}
+
+.bordaVerde {
+    border-top: 8px solid #4a6741;
+}
+
+.bordaVermelha {
+    border-top: 8px solid #932121;
+}
+
+.iconeFeedback {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.iconeFeedback .material-symbols-outlined {
+    font-size: 3em;
+}
+
+.iconeFeedback.sucesso {
+    background-color: #eaf0ea;
+    color: #4a6741;
+}
+
+.iconeFeedback.perigo {
+    background-color: #fdf6f6;
+    color: #932121;
+}
+
+.font-jost {
+    font-family: 'Jost', sans-serif;
+}
+
+.btn-ok-verde {
+    background-color: #4a6741;
+    color: #FDFBF7;
+    border-radius: 100px;
+    padding: 1em 2em;
+    font-size: 1.2em;
+    font-weight: 700;
+    width: 100%;
+    border: none;
+}
+
+.btn-ok-verde:hover {
+    background-color: #384e31;
+    color: #FDFBF7;
+}
+
+.btn-ok-vermelho {
+    background-color: #932121;
+    color: #FDFBF7;
+    border-radius: 100px;
+    padding: 1em 2em;
+    font-size: 1.2em;
+    font-weight: 700;
+    width: 100%;
+    border: none;
+}
+
+.btn-ok-vermelho:hover {
+    background-color: #7a1a1a;
+    color: #FDFBF7;
+}
+
+.btn-cancelar {
+    background-color: transparent;
+    color: #7e6f67;
+    border: 1.5px solid #e2dcd5;
+    border-radius: 100px;
+    padding: 1em 2em;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 100%;
+}
+
+.btn-cancelar:hover {
+    background-color: #f8f6f0;
+    color: #2b1f1a;
+}

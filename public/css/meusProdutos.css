@@ -1,0 +1,121 @@
+.paginaMeusProdutos {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.btn-gigante {
+    background-color: #932121; 
+    color: #ffffff;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(147, 33, 33, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 2px solid #932121;
+}
+
+.btn-gigante:hover {
+    background-color: #7a1b1b;
+    border-color: #7a1b1b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(147, 33, 33, 0.3);
+    color: #ffffff;
+}
+
+.cardProduto {
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardProduto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important;
+}
+
+.imgProduto {
+    height: 260px;
+    object-fit: cover;
+    width: 100%;
+    background-color: #fdf6f6; 
+}
+
+.imgEsgotado {
+    filter: grayscale(80%) opacity(0.8);
+}
+.cardProdutoEsgotado {
+    background-color: #faf9f7;
+}
+
+.badge-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    letter-spacing: 0.5px;
+}
+
+.bg-verde {
+    background-color: #4a6741; 
+}
+
+.bg-esgotado {
+    background-color: #e2dcd5; 
+    color: #2b1f1a !important; 
+}
+
+.btnAcao {
+    padding: 0.8rem;
+    border-radius: 12px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btnEditar {
+    background-color: #fdf6f6; 
+    color: #932121; 
+    border: 1px solid #f5e8e8;
+}
+
+.btnEditar:hover {
+    background-color: #932121;
+    color: #ffffff;
+    border-color: #932121;
+}
+
+.btnExcluir {
+    background-color: #ffffff;
+    color: #7e6f67; 
+    border: 1px solid #e2dcd5;
+    width: 55px; 
+}
+
+.btnExcluir:hover {
+    background-color: #fff1f1; 
+    color: #d32f2f; 
+    border-color: #ffcdd2;
+}
+
+@media (max-width: 768px) {
+    .btn-gigante {
+        width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+}
