@@ -12,6 +12,7 @@ use App\Models\PagamentoModel;
 use App\Models\VendaAvulsaModel;
 use App\Services\FinanceiroService;
 use App\Services\PixService;
+use App\Services\SuporteWhatsAppService;
 use App\UseCases\CadastrarProdutoUseCase;
 use App\UseCases\EditarProdutoUseCase;
 use CodeIgniter\Controller;
@@ -39,6 +40,7 @@ class ArtesaController extends Controller
             'vendasMes'        => $mes['totalVendas'],
             'pedidosPendentes' => $total['pendentes'],
             'pedidosEntregues' => $total['entregues'],
+            'linkSuporte' => (new SuporteWhatsAppService())->gerarLink((string) env('CROCHETTEI_SUPORTE_WHATSAPP', '')),
         ]);
     }
 
@@ -52,6 +54,7 @@ class ArtesaController extends Controller
                 'email' => session()->get('user_email'),
             ],
             'artesao' => (new ArtesaoModel())->find($id_artesao),
+            'linkSuporte' => (new SuporteWhatsAppService())->gerarLink((string) env('CROCHETTEI_SUPORTE_WHATSAPP', '')),
         ]);
     }
 
