@@ -225,12 +225,27 @@
 											<td>
 												<!-- Efeito Cascata: Se o Admin aprova o pagamento, vai afetar o status geral -->
 												<?php if ($pedido->status_pagamento === 'pendente' && $pedido->status_entrega !== 'cancelado'): ?>
-													<form action="<?= base_url('admin/pedidos/pagamento/' . $pedido->id) ?>" method="post" class="d-inline">
-														<?= csrf_field() ?>
-														<button type="submit" class="btn btn-sm btn-success" title="Confirmar Pagamento">
-															<span class="material-symbols-outlined align-middle" style="font-size:16px;">check_circle</span> Aprovar Pagamento
-														</button>
-													</form>
+													<form action="<?= base_url('admin/pedidos/pagamento/' . $pedido->id) ?>"
+                                                        method="post" class="<?= $pedido->metodo_pagamento === 'pix' ? 'formularioConfirmacaoPix' : 'd-inline' ?>">
+                                                        <?= csrf_field() ?>
+                                                        <?php if ($pedido->metodo_pagamento === 'pix'): ?>
+                                                            <div class="alert alert-warning p-2 mb-2" role="alert">
+                                                                <strong>Atenção: confira o extrato bancário.</strong>
+                                                                <small class="d-block">Confirme o recebimento de R$ <?= number_format($pedido->valor_total, 2, ',', '.') ?> no banco.
+                                                                Não aceite apenas o comprovante.</small>
+                                                            </div>
+                                                            <label class="d-flex align-items-start gap-2 mb-2 small">
+                                                                <input type="checkbox" name="conferiu_extrato" value="sim" required>
+                                                                Conferi o recebimento no banco.
+                                                            </label>
+                                                        <?php endif; ?>
+                                                        <button type="submit" class="btn btn-sm btn-success"
+                                                            <?= $pedido->metodo_pagamento === 'pix' ? 'disabled' : '' ?>
+                                                            title="Confirmar Pagamento">
+                                                            <span class="material-symbols-outlined align-middle" style="font-size:16px;">check_circle</span>
+                                                            Aprovar Pagamento
+                                                        </button>
+                                                    </form>
 												<?php endif; ?>
 
 												<!-- Efeito Cascata: Cancelamento pelo Suporte (Admin) -->
@@ -262,6 +277,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
+	<script src="<?= base_url('js/confirmacaoPix.js') ?>"></script>
 </body>
 
 </html>
