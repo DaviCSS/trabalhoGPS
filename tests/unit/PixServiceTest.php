@@ -12,8 +12,12 @@ class PixServiceTest extends TestCase
         $pix = new PixService();
         $this->assertTrue($pix->validarChave('contato@exemplo.com.br'));
         $this->assertTrue($pix->validarChave('12345678901'));
+        $this->assertTrue($pix->validarChave('12345678000199'));
         $this->assertTrue($pix->validarChave('+5527999999999'));
+        $this->assertTrue($pix->validarChave('123e4567-e89b-12d3-a456-426614174000'));
         $this->assertFalse($pix->validarChave('chave errada'));
+        $this->assertFalse($pix->validarChave('123.456.789-01'));
+        $this->assertFalse($pix->validarChave('(27) 99999-1234'));
     }
 
     public function testGeraCobrancaComValorEIdentificador(): void
