@@ -278,6 +278,12 @@ class ArtesaController extends Controller
             return redirect()->to('/artesa/pedidos');
         }
 
+        // A artesã precisa ter conferido o recebimento no banco.
+        if ($this->request->getPost('conferiu_extrato') !== 'sim') {
+            session()->setFlashdata('erro', 'Confira o extrato no aplicativo do banco antes de confirmar o Pix.');
+            return redirect()->to('/artesa/pedidos');
+        }
+
         if ($pagamentoModel->atualizarStatus((int) $pagamento->id_pagamento, 'aprovado')) {
             session()->setFlashdata('sucesso', 'Recebimento confirmado! A venda já aparece no saldo.');
         } else {
