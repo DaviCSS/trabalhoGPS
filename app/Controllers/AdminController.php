@@ -43,7 +43,7 @@ class AdminController extends BaseController
         ]);
     }
 
-    // UC08 — Confirma que o dinheiro caiu via gateway mock
+    // UC08 — Aprova manualmente um pagamento ou reprocessa cartão simulado
     public function aprovarPagamento(int $id)
     {
         $pedidoModel   = new PedidoModel();
@@ -53,6 +53,18 @@ class AdminController extends BaseController
 
         if (!$pagamento) {
             session()->setFlashdata('erro', "Nenhum pagamento encontrado para o pedido #{$id}.");
+            return redirect()->to('/admin/dashboard');
+        }
+
+        if ($pagamento->metodo === 'pix') {
+            $pedido = $pedidoModel->find($id);
+            if (!$pedido || $pedido->status_entrega === 'cancelado') {
+                session()->setFlashdata('erro', 'Não é possível confirmar um pedido cancelado.');
+            } elseif ($pagamentoModel->atualizarStatus((int) $pagamento->id_pagamento, 'aprovado')) {
+                session()->setFlashdata('sucesso', "Pix do pedido #{$id} confirmado manualmente.");
+            } else {
+                session()->setFlashdata('erro', 'Não foi possível confirmar o Pix.');
+            }
             return redirect()->to('/admin/dashboard');
         }
 

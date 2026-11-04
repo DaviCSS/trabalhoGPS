@@ -8,6 +8,8 @@ use App\Models\PedidoModel;
 use App\Models\ProdutoModel;
 use App\Models\ItemPedidoModel;
 use App\Models\PagamentoModel;
+use App\Models\ArtesaoModel;
+use App\Services\PixService;
 use CodeIgniter\Database\BaseConnection;
 
 /**
@@ -76,6 +78,8 @@ class CheckoutUseCase
 
             if ($id_artesao === null) {
                 $id_artesao = (int) $produto->artesao_id;
+            } elseif ($id_artesao !== (int) $produto->artesao_id) {
+                throw new \RuntimeException('Finalize separadamente os produtos de cada artesã.');
             }
 
             $precoReal   = (float) $produto->preco;
@@ -87,6 +91,18 @@ class CheckoutUseCase
                 'preco_real' => $precoReal,
                 'quantidade' => $quantidade,
             ];
+        }
+
+        // Uma cobrança Pix só pode ser criada com a chave da artesã
+        $dadosPix = null;
+        if ($metodoPagamento === 'pix') {
+            $dadosPix = (new ArtesaoModel())->buscarPorId((int) $id_artesao);
+            $pix = new PixService();
+
+            if (!$dadosPix || !$pix->validarChave((string) ($dadosPix->chave_pix ?? ''))
+                || trim((string) ($dadosPix->cidade_pix ?? '')) === '') {
+                throw new \RuntimeException('A artesã ainda não cadastrou uma chave Pix e cidade válidas. Escolha outra forma de pagamento.');
+            }
         }
 
         $this->db->transStart();
@@ -152,6 +168,23 @@ class CheckoutUseCase
                 $metodoPagamento,
                 $cpf
             );
+
+            if ($metodoPagamento === 'pix') {
+                $codigoPix = (new PixService())->gerarCodigo(
+                    $dadosPix->chave_pix,
+                    $dadosPix->nome,
+                    $dadosPix->cidade_pix,
+                    (float) $valorTotal,
+                    (int) $pedidoId
+                );
+
+                if (!$this->pagamentoModel->update(
+                    $resultadoPagamento['id_pagamento'],
+                    ['pix_copia_cola' => $codigoPix]
+                )) {
+                    throw new \RuntimeException('Não foi possível gerar a cobrança Pix.');
+                }
+            }
 
         } catch (\Throwable $e) {
             $this->db->transRollback();

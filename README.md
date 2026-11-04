@@ -106,3 +106,40 @@ Após rodar o seeder, os seguintes usuários estarão disponíveis:
 Caso queira, pode cadastrar novos usuários no sistema.
 
 ---
+
+---
+
+## Módulo Financeiro — PBIs 01, 02, 03, 07, 11, 14 e 15
+
+Este módulo acrescenta o painel de receitas e cadastro rápido de vendas, cobrança Pix direta, histórico por período, exportação em texto e orientações educativas para MEI.
+
+- **Painel da artesã:** em `/artesa/dashboard`, consulte o saldo recebido, o resumo do mês e registre uma venda realizada fora do site.
+- **Configurar Pix:** em `/artesa/apoio`, cadastre uma chave Pix e a cidade da artesã antes de receber pedidos com Pix.
+- **Pagamento:** ao finalizar a compra, o cliente encontra QR Code e Pix Copia e Cola em `/cliente/pedidos`.
+- **Confirmação manual:** a artesã confirma o recebimento em `/artesa/pedidos`. Pagamentos pendentes não contam como receita e não liberam a entrega.
+- **Histórico:** em `/artesa/relatorio`, filtre por semana, mês atual, mês anterior, mês específico ou todo o período.
+- **Exportação:** o relatório é baixado em `.txt` (sem dependências pagas), com o mesmo filtro aplicado na tela.
+- **MEI:** ao alcançar a meta demonstrativa de dez vendas recebidas, o painel apresenta passos educativos de formalização. Essa meta não é um limite legal.
+
+### Atualização do banco
+
+Depois de atualizar o código, rode a migration adicional, preservando os registros existentes:
+
+```bash
+php spark migrate
+```
+
+### Verificação manual
+
+1. Faça login como artesã, acesse as configurações e cadastre uma chave Pix válida.
+2. Registre uma venda manual e confira a atualização do painel e do relatório.
+3. Entre como cliente, faça um pedido Pix e confira o valor, o QR Code e o código Copia e Cola.
+4. Verifique que o pedido está pendente e ainda não aparece no total recebido.
+5. Depois de conferir o recebimento no aplicativo bancário, confirme o pagamento na área de pedidos da artesã.
+6. Filtre o histórico por semana e mês e baixe o resumo em texto.
+
+O QR Code é renderizado pelo JavaScript QRCode.js via CDN, sem API de pagamentos. Se a conexão com a CDN falhar, o Pix Copia e Cola permanece disponível.
+
+Para testar a estrutura do Pix, execute `vendor/bin/phpunit tests/unit/PixServiceTest.php`.
+
+**Atenção:** gerar o Pix não comprova recebimento; este MVP não acessa o extrato bancário automaticamente. As vendas manuais são registradas separadamente dos pedidos para evitar duplicidade.

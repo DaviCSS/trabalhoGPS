@@ -1,0 +1,21 @@
+name: Verificar PHP
+on:
+  push:
+    branches: [main, feat/financeiro-pbis-2026]
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, intl, mysqli, iconv
+      - name: Conferir sintaxe dos arquivos PHP
+        run: find app tests -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Instalar dependencias
+        run: composer install --no-interaction --prefer-dist --no-progress
+      - name: Testar geracao do Pix
+        run: vendor/bin/phpunit tests/unit/PixServiceTest.php

@@ -165,7 +165,7 @@
 								</div>
 								<div>
 									<strong>Pix</strong>
-									<p class="mb-0">Aprovação imediata. Sem taxas extras.</p>
+									<p class="mb-0">Cobrança direta: confirme o recebimento com a artesã. Sem taxa da plataforma.</p>
 								</div>
 								<span class="badgeDesconto ms-auto">Mais rápido</span>
 							</label>

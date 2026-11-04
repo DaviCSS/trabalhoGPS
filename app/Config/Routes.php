@@ -61,6 +61,9 @@ $routes->group('/artesa', ['filter' => 'artesa'], static function ($routes) {
     $routes->get('dashboard', 'ArtesaController::dashboard');
     $routes->get('apoio',     'ArtesaController::apoio');
     $routes->get('relatorio', 'ArtesaController::relatorio');
+    $routes->get('relatorio/exportar', 'ArtesaController::exportarRelatorio');
+    $routes->post('vendas/criar', 'ArtesaController::registrarVenda');
+    $routes->post('pix/salvar', 'ArtesaController::salvarChavePix');
 
     $routes->get( 'produtos',               'ArtesaController::listarProdutos');
     $routes->get( 'produtos/criar',         'ArtesaController::exibirFormCriacao');
@@ -70,6 +73,7 @@ $routes->group('/artesa', ['filter' => 'artesa'], static function ($routes) {
     $routes->post('produtos/excluir/(:num)','ArtesaController::excluirProduto/$1');
 
     $routes->get( 'pedidos',                    'ArtesaController::listarPedidos');
+    $routes->post('pedidos/pagamento/(:num)', 'ArtesaController::confirmarPagamento/$1');
     $routes->post('pedidos/status/(:num)',       'ArtesaController::atualizarStatusPedido/$1');
 });
 

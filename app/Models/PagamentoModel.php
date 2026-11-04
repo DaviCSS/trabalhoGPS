@@ -18,6 +18,7 @@ class PagamentoModel extends Model
         'status',
         'valor',
         'gateway_ref',
+        'pix_copia_cola',
     ];
 
     protected $useTimestamps = true;
