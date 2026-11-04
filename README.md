@@ -47,13 +47,17 @@ composer install
 
 ### 3. Configurar o ambiente
 
-Na raiz do projeto, copie o arquivo `env` e renomeie a cópia para `.env`:
+Na **pasta principal do projeto**, onde estão o `README.md`, o `composer.json` e o arquivo `spark`, crie um arquivo chamado **`.env`**.
 
-```bash
-cp env .env
+No Windows com XAMPP, o caminho será semelhante a:
+
+```text
+C:\xampp\htdocs\crochettei\.env
 ```
 
-Abra o `.env` e ajuste as seguintes linhas:
+> O arquivo `env` usado como modelo em alguns projetos CodeIgniter não está incluído neste repositório. Por isso, você pode criar o `.env` diretamente. Se já tiver um `.env` configurado, apenas edite o existente. **Não crie `.env.txt`** nem coloque o arquivo em `app/` ou `public/`.
+
+Adicione as configurações abaixo dentro do arquivo:
 
 ```env
 CI_ENVIRONMENT = development
@@ -63,9 +67,16 @@ database.default.database = crochettei
 database.default.username = root
 database.default.password =
 database.default.DBDriver = MySQLi
+
+# Telefone da equipe de suporte no WhatsApp
+CROCHETTEI_SUPORTE_WHATSAPP = 5527999991234
 ```
 
-> Deixe `password` em branco se o seu MySQL local não tiver senha configurada (padrão do XAMPP).
+**Importante:** o telefone acima é fictício e serve apenas para mostrar o formato. Substitua-o pelo **número real da equipe**, com `55` (Brasil) + DDD + telefone, sem parênteses, espaços, hífens ou sinal de `+`. Por exemplo: `55` + `27` + `999991234`.
+
+Se a configuração de banco já estiver pronta, basta **acrescentar a linha `CROCHETTEI_SUPORTE_WHATSAPP` ao final do seu `.env`**, sem apagar as outras configurações. Veja mais detalhes na seção [Configurar o suporte](#configurar-o-suporte).
+
+> Deixe `database.default.password` em branco se o seu MySQL local não tiver senha (padrão do XAMPP). O `.env` é local e já está listado no `.gitignore`, portanto não deve ser enviado ao GitHub.
 
 ### 4. Criar o banco de dados
 
@@ -153,13 +164,24 @@ Para testar a estrutura do Pix, execute `vendor/bin/phpunit tests/unit/PixServic
 
 ### Configurar o suporte
 
-No arquivo de configuração `.env` do ambiente, insira o **número real** da equipe de suporte, apenas com dígitos:
+O número usado pelo botão **Preciso de Ajuda** é lido da variável `CROCHETTEI_SUPORTE_WHATSAPP`, no arquivo **`.env` da raiz do projeto**. Não é preciso alterar os arquivos PHP ou HTML.
 
-```env
-CROCHETTEI_SUPORTE_WHATSAPP = 5527999999999
-```
+1. Abra a pasta do Crochettei no seu computador (a mesma que contém o `composer.json` e o `spark`).
+2. Localize o arquivo `.env`. Se ele ainda não existir, crie-o conforme a [etapa 3 da instalação](#3-configurar-o-ambiente).
+3. **No final do arquivo `.env`**, em uma nova linha, insira a configuração abaixo, substituindo o telefone fictício pelo número oficial da equipe:
 
-O número mostrado acima é apenas um exemplo. Troque-o pelo contato real. Se não houver um número válido configurado, o sistema informa que o suporte está indisponível e não abre um número fictício.
+   ```env
+   CROCHETTEI_SUPORTE_WHATSAPP = 5527999991234
+   ```
+
+4. Salve o arquivo. Se estiver usando `php spark serve`, reinicie o servidor para garantir que a alteração seja carregada.
+5. Entre com uma conta de artesã e clique em **Preciso de Ajuda**, no painel, ou acesse **Configurações da Minha Conta > Precisa de Ajuda?**. Confira se o WhatsApp abre para o número correto com a mensagem preenchida.
+
+**Formato obrigatório:** código do Brasil (`55`) + DDD (2 dígitos) + telefone (8 ou 9 dígitos), **somente números**. Não utilize `+`, espaços, traços ou parênteses. O exemplo `5527999991234` não é um contato real de suporte.
+
+Se o `.env` já tiver configurações de banco, **não as substitua**: adicione apenas a variável do WhatsApp. Se não houver número configurado ou ele for inválido, o sistema exibirá o suporte como indisponível em vez de usar um número fictício.
+
+> O `.env` contém configurações locais e não deve ser publicado no GitHub.
 
 ### Como conferir
 
