@@ -250,7 +250,9 @@ class ArtesaController extends Controller
         if (!(new PixService())->validarChave($chave) || mb_strlen($chave) > 77
             || mb_strlen($cidade) < 2 || mb_strlen($cidade) > 60
             || !preg_match('/^[\p{L}\s-]+$/u', $cidade)) {
-            session()->setFlashdata('erro', 'Informe uma chave Pix e uma cidade válidas.');
+            session()->setFlashdata('erro',
+                'Confira a chave Pix: CPF ou CNPJ somente com números, celular com +55 e DDD, e-mail completo ou chave aleatória. Informe também apenas o nome da cidade.');
+            session()->setFlashdata('editar_pix', true);
             return redirect()->to('/artesa/apoio');
         }
 
@@ -260,7 +262,10 @@ class ArtesaController extends Controller
         ]);
 
         session()->setFlashdata($salvo ? 'sucesso' : 'erro',
-            $salvo ? 'Chave Pix salva! As novas cobranças usarão essa chave.' : 'Erro ao salvar a chave Pix.');
+            $salvo ? 'Dados Pix salvos! As próximas cobranças utilizarão essas informações.' : 'Erro ao salvar os dados Pix.');
+        if (!$salvo) {
+            session()->setFlashdata('editar_pix', true);
+        }
 
         return redirect()->to('/artesa/apoio');
     }

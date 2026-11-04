@@ -132,6 +132,26 @@ Este módulo acrescenta o painel de receitas e cadastro rápido de vendas, cobra
 - **Exportação:** o relatório é baixado em `.txt` (sem dependências pagas), com o mesmo filtro aplicado na tela.
 - **MEI:** ao alcançar a meta demonstrativa de dez vendas recebidas, o painel apresenta passos educativos de formalização. Essa meta não é um limite legal.
 
+### Cadastro e edição da chave Pix
+
+Acesse **Configurações da Minha Conta > Configurações de Recebimento Pix** no painel da artesã.
+
+No campo **Chave Pix**, digite a chave que já está cadastrada no seu banco, respeitando o tipo:
+
+| Tipo da chave | Como preencher |
+|---|---|
+| CPF | 11 dígitos, sem pontos ou traço. Ex.: `12345678901` |
+| CNPJ | 14 dígitos, sem pontos, barra ou traço. Ex.: `12345678000199` |
+| Celular | `+55` + DDD + número, sem espaços. Ex.: `+5527999991234` |
+| E-mail | Endereço completo. Ex.: `contato@exemplo.com.br` |
+| Chave aleatória | Cole a chave inteira fornecida pelo banco, mantendo os hífens |
+
+Os valores acima são **exemplos de formato**, não chaves cadastradas para receber pagamentos. No campo **Cidade da artesã**, digite apenas o nome da cidade (por exemplo: `Serra`), sem UF ou CEP.
+
+Clique em **Salvar dados do Pix**. Depois de salvar, a tela mostra a chave e a cidade em **modo de leitura**, sem permitir alterações acidentais. Para trocar as informações, clique em **Editar dados do Pix**, altere os campos e salve novamente. O botão **Cancelar edição** descarta as mudanças ainda não salvas.
+
+**Atenção:** editar os dados afeta somente as **novas cobranças**. Os códigos Pix de pedidos anteriores continuam com as informações geradas na época da compra. Confira sempre o recebimento no aplicativo do banco.
+
 ### Atualização do banco
 
 Depois de atualizar o código, rode a migration adicional, preservando os registros existentes:
