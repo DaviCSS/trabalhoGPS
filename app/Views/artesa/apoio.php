@@ -399,29 +399,90 @@
 
 		<h2 class="secaoApoioTitulo">Configurações de Recebimento Pix</h2>
 
+        <?php
+        $pixCadastrado = !empty($artesao->chave_pix) && !empty($artesao->cidade_pix);
+        $editarPix = session()->getFlashdata('editar_pix') === true;
+        ?>
         <div class="cardConfig p-4">
             <h3 class="fs-5 fw-bold text-vinho">Minha chave Pix</h3>
-            <p class="text-fendi">Cadastre a chave da sua conta para receber diretamente dos clientes, sem taxa da plataforma.</p>
-            <form action="<?= base_url('artesa/pix/salvar') ?>" method="post">
+            <p class="text-fendi">
+                Cadastre a chave Pix da sua conta bancária para receber pagamentos diretamente dos clientes.
+                A chave precisa estar cadastrada no aplicativo do seu banco.
+            </p>
+
+            <?php if ($pixCadastrado): ?>
+            <div id="dadosPixSalvos" class="<?= $editarPix ? 'd-none' : '' ?>">
+                <div class="rounded-4 p-3 mb-3" style="background-color:#f8f6f0;border:1px solid #e2dcd5;">
+                    <p class="mb-3">
+                        <span class="text-fendi small d-block">Chave Pix cadastrada</span>
+                        <strong class="text-cafe" style="overflow-wrap:anywhere;"><?= esc($artesao->chave_pix) ?></strong>
+                    </p>
+                    <p class="mb-0">
+                        <span class="text-fendi small d-block">Cidade</span>
+                        <strong class="text-cafe"><?= esc($artesao->cidade_pix) ?></strong>
+                    </p>
+                </div>
+                <p class="text-success fw-bold mb-3">
+                    <span class="material-symbols-outlined align-middle">check_circle</span>
+                    Dados salvos. Sua chave Pix está pronta para gerar novas cobranças.
+                </p>
+                <button type="button" class="btn btn-outline-secondary btn-lg" id="btnEditarPix"
+                    aria-controls="formCadastroPix" aria-expanded="false">
+                    <span class="material-symbols-outlined align-middle">edit</span>
+                    Editar dados do Pix
+                </button>
+            </div>
+            <?php endif; ?>
+
+            <form id="formCadastroPix" class="<?= $pixCadastrado && !$editarPix ? 'd-none' : '' ?>"
+                action="<?= base_url('artesa/pix/salvar') ?>" method="post">
                 <?= csrf_field() ?>
                 <div class="mb-3">
                     <label for="chavePix" class="form-label fw-bold">Chave Pix</label>
                     <input type="text" name="chave_pix" id="chavePix" class="form-control form-control-lg"
-                        maxlength="77" value="<?= esc($artesao->chave_pix ?? '') ?>"
-                        placeholder="CPF, CNPJ, e-mail, celular ou chave aleatória" required>
+                        maxlength="77" value="<?= esc($artesao->chave_pix ?? '', 'attr') ?>"
+                        placeholder="Digite a chave que cadastrou no banco" aria-describedby="orientacoesPix"
+                        autocomplete="off" required>
+                    <div id="orientacoesPix" class="small text-fendi mt-2">
+                        <strong>Como digitar sua chave Pix:</strong>
+                        <ul class="mb-0 ps-3">
+                            <li><strong>CPF:</strong> 11 números, sem pontos ou traço. Ex.: <code>12345678901</code></li>
+                            <li><strong>CNPJ:</strong> 14 números, sem pontuação. Ex.: <code>12345678000199</code></li>
+                            <li><strong>Celular:</strong> <code>+55</code> + DDD + número, sem espaços. Ex.: <code>+5527999991234</code></li>
+                            <li><strong>E-mail:</strong> completo, como <code>contato@exemplo.com.br</code></li>
+                            <li><strong>Chave aleatória:</strong> copie o código completo do banco, com os hífens.</li>
+                        </ul>
+                        <span class="d-block mt-2">Os exemplos mostram apenas o formato. Use sua própria chave cadastrada no banco.</span>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="cidadePix" class="form-label fw-bold">Cidade da artesã</label>
                     <input type="text" name="cidade_pix" id="cidadePix" class="form-control form-control-lg"
-                        maxlength="60" value="<?= esc($artesao->cidade_pix ?? '') ?>"
-                        placeholder="Ex.: Serra" required>
+                        maxlength="60" value="<?= esc($artesao->cidade_pix ?? '', 'attr') ?>"
+                        placeholder="Ex.: Serra" aria-describedby="orientacoesCidadePix" required>
+                    <div id="orientacoesCidadePix" class="form-text">
+                        Digite somente o nome da cidade, sem estado, números ou CEP. Ex.: Serra.
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-lg text-white" style="background:#932121;">Salvar chave Pix</button>
+                <?php if ($pixCadastrado): ?>
+                    <p class="text-fendi small">
+                        A mudança será utilizada nas próximas cobranças. Códigos Pix já gerados não serão alterados.
+                    </p>
+                <?php endif; ?>
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="submit" class="btn btn-lg text-white" style="background:#932121;">
+                        Salvar dados do Pix
+                    </button>
+                    <?php if ($pixCadastrado): ?>
+                        <button type="button" class="btn btn-lg btn-outline-secondary" id="btnCancelarEdicaoPix">
+                            Cancelar edição
+                        </button>
+                    <?php endif; ?>
+                </div>
             </form>
-            <?php if (!empty($artesao->chave_pix)): ?>
-                <p class="text-success fw-bold mt-3 mb-0">Chave cadastrada. Os novos pedidos usarão esses dados.</p>
-            <?php endif; ?>
-            <p class="text-fendi small mt-3 mb-0">O pagamento entra direto na sua conta. O sistema não consulta seu banco automaticamente.</p>
+            <p class="text-fendi small mt-3 mb-0">
+                O sistema não consulta seu banco automaticamente. Confirme o pagamento no extrato antes de liberar um pedido.
+            </p>
         </div>
 
 		<h2 class="secaoApoioTitulo">Perfil da Artesã</h2>
@@ -509,6 +570,31 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
+<script>
+    // Mostra a edição apenas quando a artesã pedir.
+    const btnEditarPix = document.getElementById('btnEditarPix');
+    const btnCancelarEdicaoPix = document.getElementById('btnCancelarEdicaoPix');
+    const dadosPixSalvos = document.getElementById('dadosPixSalvos');
+    const formCadastroPix = document.getElementById('formCadastroPix');
+
+    if (btnEditarPix && dadosPixSalvos && formCadastroPix) {
+        btnEditarPix.addEventListener('click', function () {
+            dadosPixSalvos.classList.add('d-none');
+            formCadastroPix.classList.remove('d-none');
+            btnEditarPix.setAttribute('aria-expanded', 'true');
+            document.getElementById('chavePix').focus();
+        });
+    }
+
+    if (btnCancelarEdicaoPix && dadosPixSalvos && formCadastroPix) {
+        btnCancelarEdicaoPix.addEventListener('click', function () {
+            formCadastroPix.reset();
+            formCadastroPix.classList.add('d-none');
+            dadosPixSalvos.classList.remove('d-none');
+            btnEditarPix.setAttribute('aria-expanded', 'false');
+        });
+    }
+</script>
 </body>
 
 </html>
