@@ -115,16 +115,16 @@
 					<span class="pedidoData"><?= date('d/m/Y', strtotime($pedido->created_at)) ?></span>
 				</div>
 				<div class="pedidoBadges">
-					<span class="badgeStatus <?= $pedido->status_pagamento === 'pago' ? 'badge-verde' : 'badge-amarelo' ?>">
+					<span class="badgeStatus <?= $pedido->status_pagamento === 'aprovado' ? 'badge-verde' : 'badge-amarelo' ?>">
 						<span class="material-symbols-outlined align-middle" style="font-size:0.9em;">payments</span>
-						<?= $pedido->status_pagamento === 'pago' ? 'Pago' : 'Pagamento Pendente' ?>
+						<?= $pedido->status_pagamento === 'aprovado' ? 'Pago' : 'Pagamento Pendente' ?>
 					</span>
 					
-					<?php if ($pedido->status_entrega === 'em_producao'): ?>
+					<?php if ($pedido->status_pagamento === 'aprovado' && $pedido->status_entrega === 'em_producao'): ?>
 						<span class="badgeStatus badge-amarelo">Em Produção</span>
-					<?php elseif ($pedido->status_entrega === 'aguardando_coleta'): ?>
+					<?php elseif ($pedido->status_pagamento === 'aprovado' && $pedido->status_entrega === 'aguardando_coleta'): ?>
 						<span class="badgeStatus badge-azul">Aguardando Coleta</span>
-					<?php elseif ($pedido->status_entrega === 'enviado'): ?>
+					<?php elseif ($pedido->status_pagamento === 'aprovado' && $pedido->status_entrega === 'enviado'): ?>
 						<span class="badgeStatus badge-azul">Enviado</span>
 					<?php elseif ($pedido->status_entrega === 'entregue'): ?>
 						<span class="badgeStatus badge-verde">Entregue</span>
@@ -179,7 +179,7 @@
 			<?php if (!$isCancelado && !$isEntregue): ?>
 			<div class="cardPedidoAcoes">
 				
-				<?php if ($pedido->status_pagamento !== 'pago'): ?>
+				<?php if ($pedido->status_pagamento === 'pendente' && $pedido->metodo_pagamento === 'pix'): ?>
 					<form action="<?= base_url('artesa/pedidos/pagamento/' . $pedido->id) ?>" method="post" class="formAcaoEmLinha">
 						<?= csrf_field() ?>
 						<button type="submit" class="btnAcao btnAceitarPedido" aria-label="Confirmar pagamento do pedido">

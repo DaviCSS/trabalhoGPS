@@ -57,13 +57,13 @@
 			<div class="col">
 				<div class="card border-0 shadow-sm rounded-4 text-center p-3">
 					<div class="fs-4 fw-bold text-vinho"><?= (int)($totalPedidos ?? 0) ?></div>
-					<div class="text-fendi small">Total de Pedidos</div>
+					<div class="text-fendi small">Vendas Registradas</div>
 				</div>
 			</div>
 			<div class="col">
 				<div class="card border-0 shadow-sm rounded-4 text-center p-3">
 					<div class="fs-4 fw-bold text-vinho">R$ <?= number_format($totalFaturado ?? 0, 2, ',', '.') ?></div>
-					<div class="text-fendi small">Total Faturado</div>
+					<div class="text-fendi small">Total Recebido</div>
 				</div>
 			</div>
 			<div class="col">
@@ -74,6 +74,43 @@
 			</div>
 		</div>
 	</div>
+
+
+    <div class="container mt-3 px-3 px-md-4">
+        <div class="card border-0 shadow-sm rounded-4 p-4 mb-3">
+            <h3 class="text-vinho fw-bold fs-5">
+                <span class="material-symbols-outlined align-middle">payments</span> Meu resumo do mês
+            </h3>
+            <p class="mb-1">Vendas recebidas: <strong><?= (int) ($vendasMes ?? 0) ?></strong></p>
+            <p class="fs-4 fw-bold text-vinho mb-2">R$ <?= number_format($faturamentoMes ?? 0, 2, ',', '.') ?></p>
+            <a href="<?= base_url('artesa/relatorio') ?>" class="fw-bold text-vinho">Ver histórico e relatórios</a>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 p-4 mb-3">
+            <h3 class="text-vinho fw-bold fs-5">
+                <span class="material-symbols-outlined align-middle">add_circle</span> Registrar venda realizada
+            </h3>
+            <p class="text-fendi">Vendeu uma peça fora do site? Registre aqui em dois campos.</p>
+            <form action="<?= base_url('artesa/vendas/criar') ?>" method="post" class="row g-3 align-items-end">
+                <?= csrf_field() ?>
+                <div class="col-12 col-md-6">
+                    <label for="produtoVenda" class="form-label fw-bold">Nome da peça</label>
+                    <input id="produtoVenda" type="text" class="form-control form-control-lg" name="produto"
+                        maxlength="255" placeholder="Ex.: Bolsa de crochê" required>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label for="valorVenda" class="form-label fw-bold">Valor recebido (R$)</label>
+                    <input id="valorVenda" type="number" step="0.01" min="0.01" max="99999999.99"
+                        class="form-control form-control-lg" name="valor" placeholder="0,00" required>
+                </div>
+                <div class="col-12 col-md-3">
+                    <button type="submit" class="btn btn-lg w-100 text-white" style="background:#8C2C36;">
+                        Salvar venda
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 	<?php
 	$metaVendas = 10;
@@ -86,7 +123,7 @@
 				<span class="material-symbols-outlined align-middle me-1">local_fire_department</span>
 				Termômetro de Sucesso
 			</h5>
-			<p class="text-fendi small mb-2">Acompanhe seu crescimento! Nossa primeira meta para você é de <?= $metaVendas ?> vendas.</p>
+			<p class="text-fendi small mb-2">Acompanhe seu crescimento! Nossa primeira meta é de <?= $metaVendas ?> vendas recebidas.</p>
 			
 			<div class="progress" style="height: 25px; border-radius: 20px; background-color: #f1ede1;">
 				<div class="progress-bar" role="progressbar" style="width: <?= $progresso ?>%; background-color: #8C2C36; font-weight: bold;" aria-valuenow="<?= $progresso ?>" aria-valuemin="0" aria-valuemax="100">
@@ -98,8 +135,16 @@
 			<div class="alert mt-3 mb-0 d-flex align-items-center gap-2" role="alert" style="border-radius: 15px; background-color: #fff3cd; border: 1px solid #ffe69c; color: #664d03;">
 				<span class="material-symbols-outlined" style="font-size: 2.2em; color: #ffc107;">workspace_premium</span>
 				<div style="font-size: 0.9em;">
-					<strong>Parabéns! Suas vendas estão decolando!</strong><br>
-					Com esse sucesso, que tal dar o próximo passo? Considere se formalizar tirando o <strong>MEI (Microempreendedor Individual)</strong> para garantir direitos como aposentadoria e auxílio-doença!
+                    <strong>Parabéns pelas suas vendas!</strong><br>
+                    Se quiser formalizar seu negócio como MEI, estes são os primeiros passos:
+                    <ol class="mb-2 mt-2 ps-3">
+                        <li>Verifique se sua atividade pode ser MEI.</li>
+                        <li>Confira os requisitos e o limite de faturamento atual.</li>
+                        <li>Acesse o Portal do Empreendedor para fazer o cadastro gratuito.</li>
+                    </ol>
+                    <a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor" target="_blank"
+                        rel="noopener noreferrer" class="fw-bold">Consultar orientações oficiais</a>
+                    <p class="mb-0 mt-2 small">O número de vendas é apenas uma meta de incentivo, não uma regra legal para abrir MEI.</p>
 				</div>
 			</div>
 			<?php endif; ?>

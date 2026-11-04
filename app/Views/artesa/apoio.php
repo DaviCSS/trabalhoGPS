@@ -360,6 +360,12 @@
 	</div>
 
 	<main class="areaConfigArtesa">
+        <?php if (session()->getFlashdata('sucesso')): ?>
+        <div class="alert alert-success" role="alert"><?= esc(session()->getFlashdata('sucesso')) ?></div>
+        <?php endif; ?>
+        <?php if (session()->getFlashdata('erro')): ?>
+        <div class="alert alert-danger" role="alert"><?= esc(session()->getFlashdata('erro')) ?></div>
+        <?php endif; ?>
 
 		<h2 class="secaoApoioTitulo">Relatórios</h2>
 
@@ -391,57 +397,32 @@
 			</div>
 		</div>
 
-		<h2 class="secaoApoioTitulo">Configurações Bancárias</h2>
+		<h2 class="secaoApoioTitulo">Configurações de Recebimento Pix</h2>
 
-		<div class="cardConfig">
-			<div class="cardConfigItem">
-				<div class="cardConfigIcone" style="background-color: #fdf6f6; color: #932121;">
-					<svg width="24" height="24" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M141.226 211.536L211.542 141.22a63.504 63.504 0 0 1 89.813 0L371.67 211.536l-32.84 32.84-70.315-70.315a17.067 17.067 0 0 0-24.135 0l-70.314 70.315-32.84-32.84zm159.227 88.928l-70.313 70.314a17.067 17.067 0 0 1-24.136 0l-70.314-70.314-32.84 32.84L173.165 403.62a63.505 63.505 0 0 0 89.813 0l70.315-70.315-32.84-32.84z"/><path d="M409.835 255.45l-38.165-38.165-32.84 32.84 26.097 26.098a17.067 17.067 0 0 1 0 24.135l-26.097 26.098 32.84 32.84 38.165-38.166a63.505 63.505 0 0 0 0-89.812zM102.165 255.45l38.165-38.165 32.84 32.84-26.097 26.098a17.067 17.067 0 0 0 0 24.135l26.097 26.098-32.84 32.84-38.165-38.166a63.505 63.505 0 0 1 0-89.812z"/></svg>
-				</div>
-				<div class="cardConfigTexto">
-					<strong>Chave Pix</strong>
-					<span><?= esc($usuario->email) ?></span>
-				</div>
-				<div class="cardConfigAcao">
-					<span class="badgeAtivo">Ativo</span>
-					<span class="badgeEmBreve">Edição em Breve</span>
-				</div>
-			</div>
-
-			<div class="cardConfigItem">
-				<div class="cardConfigIcone">
-					<span class="material-symbols-outlined">account_balance</span>
-				</div>
-				<div class="cardConfigTexto">
-					<strong>Conta Bancária</strong>
-					<span>Nubank — Ag. 0001 · CC ••••-4521</span>
-				</div>
-				<div class="cardConfigAcao">
-					<span class="badgeEmBreve">Em Breve</span>
-				</div>
-			</div>
-
-			<div class="cardConfigItem">
-				<div class="cardConfigIcone">
-					<span class="material-symbols-outlined">calendar_month</span>
-				</div>
-				<div class="cardConfigTexto">
-					<strong>Frequência de Repasse</strong>
-					<span>Quinzenal — todo dia 5 e 20</span>
-				</div>
-				<div class="cardConfigAcao">
-					<span class="badgeEmBreve">Em Breve</span>
-				</div>
-			</div>
-		</div>
-
-		<div class="notaPlaceholder" role="note" style="margin-top: 0.5em; background-color: #ffffff; padding: 1em; border-radius: 8px; font-family: 'Quicksand', sans-serif; font-size: 0.9em; display: flex; gap: 0.5em;">
-			<span class="material-symbols-outlined" style="color:#b5a89e;">info</span>
-			<span>
-				Os campos de <strong>Configurações Bancárias</strong> estão previstos na arquitetura da plataforma
-				e serão habilitados na próxima versão do MVP, após integração com gateway de pagamento.
-			</span>
-		</div>
+        <div class="cardConfig p-4">
+            <h3 class="fs-5 fw-bold text-vinho">Minha chave Pix</h3>
+            <p class="text-fendi">Cadastre a chave da sua conta para receber diretamente dos clientes, sem taxa da plataforma.</p>
+            <form action="<?= base_url('artesa/pix/salvar') ?>" method="post">
+                <?= csrf_field() ?>
+                <div class="mb-3">
+                    <label for="chavePix" class="form-label fw-bold">Chave Pix</label>
+                    <input type="text" name="chave_pix" id="chavePix" class="form-control form-control-lg"
+                        maxlength="77" value="<?= esc($artesao->chave_pix ?? '') ?>"
+                        placeholder="CPF, CNPJ, e-mail, celular ou chave aleatória" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cidadePix" class="form-label fw-bold">Cidade da artesã</label>
+                    <input type="text" name="cidade_pix" id="cidadePix" class="form-control form-control-lg"
+                        maxlength="60" value="<?= esc($artesao->cidade_pix ?? '') ?>"
+                        placeholder="Ex.: Serra" required>
+                </div>
+                <button type="submit" class="btn btn-lg text-white" style="background:#932121;">Salvar chave Pix</button>
+            </form>
+            <?php if (!empty($artesao->chave_pix)): ?>
+                <p class="text-success fw-bold mt-3 mb-0">Chave cadastrada. Os novos pedidos usarão esses dados.</p>
+            <?php endif; ?>
+            <p class="text-fendi small mt-3 mb-0">O pagamento entra direto na sua conta. O sistema não consulta seu banco automaticamente.</p>
+        </div>
 
 		<h2 class="secaoApoioTitulo">Perfil da Artesã</h2>
 

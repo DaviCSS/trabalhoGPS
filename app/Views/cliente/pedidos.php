@@ -97,11 +97,26 @@
 					};
 					?>
 					<span class="badgeStatusCliente <?= $statusClass ?>"><?= $statusLabel ?></span>
-					<?php if ($pedido->status_pagamento === 'pago'): ?>
+					<?php if ($pedido->status_pagamento === 'aprovado'): ?>
 					<span class="badgeStatusCliente badge-verde ms-1">Pago</span>
 					<?php endif; ?>
 				</div>
-			</div>
+            </div>
+            <?php if ($pedido->metodo_pagamento === 'pix' && $pedido->status_pagamento === 'pendente'
+                && $pedido->status_entrega !== 'cancelado' && !empty($pedido->pix_copia_cola)): ?>
+            <section class="bg-white border rounded-4 p-4 mb-4" aria-label="Cobrança Pix do pedido <?= (int) $pedido->id ?>">
+                <h4 class="fs-5 fw-bold text-vinho">Pague o pedido #<?= (int) $pedido->id ?> pelo Pix</h4>
+                <p>Escaneie o QR Code ou copie o código no aplicativo do seu banco.</p>
+                <div class="qrPix mb-3" data-pix="<?= esc($pedido->pix_copia_cola, 'attr') ?>"
+                    id="qr-pix-<?= (int) $pedido->id ?>"></div>
+                <label for="codigo-pix-<?= (int) $pedido->id ?>" class="fw-bold">Pix Copia e Cola</label>
+                <textarea id="codigo-pix-<?= (int) $pedido->id ?>" class="form-control mb-2" rows="3"
+                    readonly><?= esc($pedido->pix_copia_cola) ?></textarea>
+                <button type="button" class="btn btn-lg text-white" style="background:#932121;"
+                    onclick="copiarPix(<?= (int) $pedido->id ?>)">Copiar código Pix</button>
+                <p class="text-fendi small mt-3 mb-0">Após o pagamento, a artesã confirmará o recebimento.</p>
+            </section>
+            <?php endif; ?>
 		<?php endforeach; ?>
 
 		</div>
@@ -118,6 +133,37 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+    document.querySelectorAll('.qrPix').forEach(function (elemento) {
+        if (typeof QRCode !== 'undefined') {
+            new QRCode(elemento, {
+                text: elemento.dataset.pix,
+                width: 190,
+                height: 190
+            });
+        }
+    });
+
+    function copiarPix(id) {
+        const campo = document.getElementById('codigo-pix-' + id);
+        if (!campo) return;
+
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(campo.value).then(function () {
+                alert('Código Pix copiado!');
+            }).catch(function () {
+                campo.select();
+                document.execCommand('copy');
+                alert('Código Pix copiado!');
+            });
+        } else {
+            campo.select();
+            document.execCommand('copy');
+            alert('Código Pix copiado!');
+        }
+    }
+</script>
 </body>
 
 </html>
