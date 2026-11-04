@@ -30,7 +30,9 @@ class FinanceiroService
 
         if ($periodo === 'mes' && preg_match('/^\d{4}-(0[1-9]|1[0-2])$/', $mes)) {
             $inicio = \DateTimeImmutable::createFromFormat('!Y-m-d', $mes . '-01');
-            return [$inicio, $inicio->modify('+1 month'), $inicio->format('m/Y')];
+            if ($inicio !== false) {
+                return [$inicio, $inicio->modify('+1 month'), $inicio->format('m/Y')];
+            }
         }
 
         $inicio = $hoje->modify('first day of this month');

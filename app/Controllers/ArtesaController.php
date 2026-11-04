@@ -186,6 +186,13 @@ class ArtesaController extends Controller
             return redirect()->to('/artesa/pedidos');
         }
 
+        // Não avança a entrega enquanto o pagamento estiver pendente
+        $pagamento = (new PagamentoModel())->buscarPorPedido($id);
+        if ($novoStatus !== 'cancelado' && (!$pagamento || $pagamento->status !== 'aprovado')) {
+            session()->setFlashdata('erro', 'Confirme o recebimento antes de avançar o pedido.');
+            return redirect()->to('/artesa/pedidos');
+        }
+
         // Atualiza código de rastreio se enviado
         $codigoRastreio = trim($this->request->getPost('codigo_rastreio') ?? '');
         $updateData     = ['status_entrega' => $novoStatus];

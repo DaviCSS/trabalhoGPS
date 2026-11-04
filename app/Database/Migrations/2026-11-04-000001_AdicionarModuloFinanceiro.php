@@ -26,6 +26,7 @@ class AdicionarModuloFinanceiro extends Migration
             'produto'    => ['type' => 'VARCHAR', 'constraint' => 255],
             'valor'      => ['type' => 'DECIMAL', 'constraint' => '10,2'],
             'created_at' => ['type' => 'DATETIME', 'null' => true],
+            'updated_at' => ['type' => 'DATETIME', 'null' => true],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('id_artesao', 'artesaos', 'id_artesao', 'CASCADE', 'CASCADE');

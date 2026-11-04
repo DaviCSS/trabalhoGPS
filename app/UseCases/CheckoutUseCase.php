@@ -78,6 +78,8 @@ class CheckoutUseCase
 
             if ($id_artesao === null) {
                 $id_artesao = (int) $produto->artesao_id;
+            } elseif ($id_artesao !== (int) $produto->artesao_id) {
+                throw new \RuntimeException('Finalize separadamente os produtos de cada artesã.');
             }
 
             $precoReal   = (float) $produto->preco;
