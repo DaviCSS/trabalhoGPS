@@ -369,3 +369,53 @@
 		align-items: flex-start;
 	}
 }
+
+/* Aviso de seguranca antes de confirmar um recebimento Pix */
+.formularioConfirmacaoPix {
+    width: 100%;
+}
+
+.alertaConfirmacaoPix {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75em;
+    border: 2px solid #d19a43;
+    border-radius: 14px;
+    background-color: #fff3cd;
+    padding: 1em;
+    margin-bottom: 0.8em;
+    color: #664d03;
+}
+
+.alertaConfirmacaoPix > .material-symbols-outlined {
+    font-size: 2em;
+    flex-shrink: 0;
+}
+
+.alertaConfirmacaoPix p {
+    margin: 0.4em 0 0;
+    line-height: 1.5;
+}
+
+.marcadorConfirmacaoPix {
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+    min-height: 44px;
+    margin-bottom: 0.9em;
+    font-weight: 700;
+}
+
+.marcadorConfirmacaoPix input {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+    accent-color: #4a6741;
+}
+
+.formularioConfirmacaoPix button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
