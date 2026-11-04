@@ -65,7 +65,7 @@ class PedidoModel extends Model
                 u_artesao.nome AS artesa_nome,
                 u_artesao.telefone AS artesa_telefone,
                 e.logradouro, e.numero, e.bairro, e.cidade, e.estado, e.cep,
-                pg.status AS status_pagamento, pg.metodo AS metodo_pagamento, pg.id_pagamento
+                pg.status AS status_pagamento, pg.metodo AS metodo_pagamento, pg.id_pagamento, pg.pix_copia_cola
             ')
             ->join('artesaos a',    'a.id_artesao = pe.id_artesao',     'left')
             ->join('usuarios u_artesao', 'u_artesao.id_usuario = a.id_usuario', 'left')
@@ -85,7 +85,7 @@ class PedidoModel extends Model
                 u_cliente.nome AS cliente_nome,
                 u_cliente.telefone AS cliente_telefone,
                 e.logradouro, e.numero, e.bairro, e.cidade, e.estado, e.cep,
-                pg.status AS status_pagamento, pg.metodo AS metodo_pagamento, pg.id_pagamento
+                pg.status AS status_pagamento, pg.metodo AS metodo_pagamento, pg.id_pagamento, pg.pix_copia_cola
             ')
             ->join('clientes cl',   'cl.id_cliente = pe.id_cliente',    'left')
             ->join('usuarios u_cliente', 'u_cliente.id_usuario = cl.id_usuario', 'left')
@@ -166,7 +166,7 @@ class PedidoModel extends Model
                 u_cliente.nome AS cliente_nome,
                 u_artesao.nome AS artesa_nome,
                 e.logradouro, e.numero, e.cidade, e.estado,
-                pg.status AS status_pagamento, pg.metodo AS metodo_pagamento, pg.id_pagamento
+                pg.status AS status_pagamento, pg.metodo AS metodo_pagamento, pg.id_pagamento, pg.pix_copia_cola
             ')
             ->join('clientes cl',        'cl.id_cliente = pe.id_cliente',          'left')
             ->join('usuarios u_cliente', 'u_cliente.id_usuario = cl.id_usuario',   'left')

@@ -16,6 +16,8 @@ class ArtesaoModel extends Model
         'id_usuario',
         'biografia',
         'portfolio',
+        'chave_pix',
+        'cidade_pix',
     ];
 
     protected $useTimestamps = false;

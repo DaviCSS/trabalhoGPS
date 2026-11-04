@@ -234,9 +234,11 @@ class CheckoutController extends Controller
             $pgStatus = $resultado['pagamento']['status'] ?? 'pendente';
 
             if ($pgStatus === 'aprovado') {
-                $msg = "✅ Pedido #{$pedidoId} realizado e pagamento APROVADO! A artesã já foi notificada.";
+                $msg = "✅ Pedido #{$pedidoId} registrado e pagamento aprovado!";
+            } elseif ($pgStatus === 'pendente') {
+                $msg = "Pedido #{$pedidoId} criado! Veja o Pix em Meus Pedidos e pague diretamente à artesã.";
             } else {
-                $msg = "⚠️ Pedido #{$pedidoId} registrado, mas o pagamento foi RECUSADO. Tente outro método.";
+                $msg = "Pedido #{$pedidoId} registrado, mas o pagamento foi recusado.";
             }
 
             session()->setFlashdata('sucesso', $msg);

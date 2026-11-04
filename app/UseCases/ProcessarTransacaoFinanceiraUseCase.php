@@ -11,7 +11,7 @@ use App\Models\PedidoModel;
  * UC08 — Processar Transação Financeira
  *
  * Gateway de pagamento simulado (mock):
- *  - PIX: sempre aprovado imediatamente.
+ *  - PIX direto: aguarda confirmação manual da artesã.
  *  - Cartão: aprovado em 85% dos casos (determinístico via hash do CPF).
  */
 class ProcessarTransacaoFinanceiraUseCase
@@ -30,16 +30,18 @@ class ProcessarTransacaoFinanceiraUseCase
      */
     public function processar(int $id_pedido, float $valor, string $metodo, string $cpf = ''): array
     {
-        $gatewayRef = 'MOCK-' . strtoupper(bin2hex(random_bytes(6)));
+        $gatewayRef = $metodo === 'pix'
+            ? 'DIRETO-' . $id_pedido
+            : 'MOCK-' . strtoupper(bin2hex(random_bytes(6)));
 
         // Simulação de aprovação do gateway
         $aprovado = match ($metodo) {
-            'pix'    => true,                            // PIX sempre aprovado
+            'pix'    => false,                           // Pix depende do recebimento real
             'cartao' => $this->simularAprovacaoCartao($cpf),
             default  => false,
         };
 
-        $status = $aprovado ? 'aprovado' : 'recusado';
+        $status = $metodo === 'pix' ? 'pendente' : ($aprovado ? 'aprovado' : 'recusado');
 
         // Verifica se já existe pagamento para o pedido (evita duplicação)
         $pagamentoExistente = $this->pagamentoModel->buscarPorPedido($id_pedido);
