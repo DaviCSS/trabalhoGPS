@@ -143,3 +143,32 @@ O QR Code é renderizado pelo JavaScript QRCode.js via CDN, sem API de pagamento
 Para testar a estrutura do Pix, execute `vendor/bin/phpunit tests/unit/PixServiceTest.php`.
 
 **Atenção:** gerar o Pix não comprova recebimento; este MVP não acessa o extrato bancário automaticamente. As vendas manuais são registradas separadamente dos pedidos para evitar duplicidade.
+
+
+## PBIs 04 e 12
+
+**PBI-04 — Alerta preventivo do Pix:** nos pedidos Pix pendentes, a artesã recebe uma orientação em destaque para conferir o recebimento diretamente no aplicativo bancário. Antes de confirmar o pagamento, precisa marcar a caixa de verificação. O servidor também valida esse campo. O mesmo cuidado foi aplicado ao administrador.
+
+**PBI-12 — Suporte via WhatsApp:** a artesã tem um botão "Preciso de Ajuda" no painel e um atalho em Configurações da Minha Conta. Ambos usam o contato configurado e abrem uma conversa com mensagem pronta.
+
+### Configurar o suporte
+
+No arquivo de configuração `.env` do ambiente, insira o **número real** da equipe de suporte, apenas com dígitos:
+
+```env
+CROCHETTEI_SUPORTE_WHATSAPP = 5527999999999
+```
+
+O número mostrado acima é apenas um exemplo. Troque-o pelo contato real. Se não houver um número válido configurado, o sistema informa que o suporte está indisponível e não abre um número fictício.
+
+### Como conferir
+
+1. Faça login como artesã e entre em **Meus Pedidos**, com um Pix pendente.
+2. Confira o alerta de segurança e o bloqueio do botão de confirmação.
+3. Marque que conferiu o extrato do banco: o botão deve ser liberado.
+4. Tente enviar uma confirmação sem o campo marcado: o servidor deve rejeitá-la.
+5. Entre no painel e teste o botão **Preciso de Ajuda** com o número real configurado.
+6. Execute `vendor/bin/phpunit tests/unit/SuporteWhatsAppServiceTest.php`.
+
+Esses dois PBIs não exigem nova migration.
+

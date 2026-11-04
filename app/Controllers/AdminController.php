@@ -58,8 +58,10 @@ class AdminController extends BaseController
 
         if ($pagamento->metodo === 'pix') {
             $pedido = $pedidoModel->find($id);
-            if (!$pedido || $pedido->status_entrega === 'cancelado') {
-                session()->setFlashdata('erro', 'Não é possível confirmar um pedido cancelado.');
+            if (!$pedido || $pedido->status_entrega === 'cancelado' || $pagamento->status !== 'pendente') {
+                session()->setFlashdata('erro', 'Não é possível confirmar este pedido.');
+            } elseif ($this->request->getPost('conferiu_extrato') !== 'sim') {
+                session()->setFlashdata('erro', 'Confira o extrato no banco antes de confirmar o Pix.');
             } elseif ($pagamentoModel->atualizarStatus((int) $pagamento->id_pagamento, 'aprovado')) {
                 session()->setFlashdata('sucesso', "Pix do pedido #{$id} confirmado manualmente.");
             } else {

@@ -196,6 +196,33 @@
 				<span class="material-symbols-outlined btnAcaoSeta">arrow_forward_ios</span>
 			</a>
 
+        <?php if ($linkSuporte): ?>
+        <a href="<?= esc($linkSuporte, 'attr') ?>" target="_blank" rel="noopener noreferrer"
+            class="btnAcaoPrincipal" id="btnSuporteWhatsApp"
+            aria-label="Falar com o suporte do Crochettei no WhatsApp">
+            <div class="btnAcaoIcone" style="background-color:#e8f9f0;color:#177b41;">
+                <span class="material-symbols-outlined">support_agent</span>
+            </div>
+            <div class="btnAcaoTexto">
+                <span class="btnAcaoTitulo">Preciso de Ajuda</span>
+                <span class="btnAcaoDesc">Fale com o suporte no WhatsApp com uma mensagem pronta.</span>
+            </div>
+            <span class="material-symbols-outlined btnAcaoSeta">arrow_forward_ios</span>
+        </a>
+        <?php else: ?>
+        <a href="<?= base_url('artesa/apoio') ?>#suporte-whatsapp" class="btnAcaoPrincipal"
+            id="btnSuporteWhatsApp" aria-label="Consultar o suporte">
+            <div class="btnAcaoIcone">
+                <span class="material-symbols-outlined">support_agent</span>
+            </div>
+            <div class="btnAcaoTexto">
+                <span class="btnAcaoTitulo">Preciso de Ajuda</span>
+                <span class="btnAcaoDesc">Veja as informações do suporte.</span>
+            </div>
+            <span class="material-symbols-outlined btnAcaoSeta">arrow_forward_ios</span>
+        </a>
+        <?php endif; ?>
+
 		</div>
 
 		<div class="linkIrCompras" role="navigation" aria-label="Acessar painel de cliente">

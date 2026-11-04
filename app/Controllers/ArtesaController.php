@@ -12,6 +12,7 @@ use App\Models\PagamentoModel;
 use App\Models\VendaAvulsaModel;
 use App\Services\FinanceiroService;
 use App\Services\PixService;
+use App\Services\SuporteWhatsAppService;
 use App\UseCases\CadastrarProdutoUseCase;
 use App\UseCases\EditarProdutoUseCase;
 use CodeIgniter\Controller;
@@ -39,6 +40,7 @@ class ArtesaController extends Controller
             'vendasMes'        => $mes['totalVendas'],
             'pedidosPendentes' => $total['pendentes'],
             'pedidosEntregues' => $total['entregues'],
+            'linkSuporte' => (new SuporteWhatsAppService())->gerarLink((string) env('CROCHETTEI_SUPORTE_WHATSAPP', '')),
         ]);
     }
 
@@ -52,6 +54,7 @@ class ArtesaController extends Controller
                 'email' => session()->get('user_email'),
             ],
             'artesao' => (new ArtesaoModel())->find($id_artesao),
+            'linkSuporte' => (new SuporteWhatsAppService())->gerarLink((string) env('CROCHETTEI_SUPORTE_WHATSAPP', '')),
         ]);
     }
 
@@ -275,6 +278,12 @@ class ArtesaController extends Controller
             || !$pagamento || $pagamento->metodo !== 'pix'
             || $pagamento->status !== 'pendente') {
             session()->setFlashdata('erro', 'Não é possível confirmar esse pagamento.');
+            return redirect()->to('/artesa/pedidos');
+        }
+
+        // A artesã precisa ter conferido o recebimento no banco.
+        if ($this->request->getPost('conferiu_extrato') !== 'sim') {
+            session()->setFlashdata('erro', 'Confira o extrato no aplicativo do banco antes de confirmar o Pix.');
             return redirect()->to('/artesa/pedidos');
         }
 

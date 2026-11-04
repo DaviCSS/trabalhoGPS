@@ -180,13 +180,25 @@
 			<div class="cardPedidoAcoes">
 				
 				<?php if ($pedido->status_pagamento === 'pendente' && $pedido->metodo_pagamento === 'pix'): ?>
-					<form action="<?= base_url('artesa/pedidos/pagamento/' . $pedido->id) ?>" method="post" class="formAcaoEmLinha">
-						<?= csrf_field() ?>
-						<button type="submit" class="btnAcao btnAceitarPedido" aria-label="Confirmar pagamento do pedido">
-							<span class="material-symbols-outlined">check_circle</span>
-							Confirmar Pagamento
-						</button>
-					</form>
+					<form action="<?= base_url('artesa/pedidos/pagamento/' . $pedido->id) ?>" method="post" class="formularioConfirmacaoPix">
+                        <?= csrf_field() ?>
+                        <div class="alertaConfirmacaoPix" role="alert">
+                            <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+                            <div>
+                                <strong>Atenção! Confira no seu banco antes de confirmar.</strong>
+                                <p>Verifique no aplicativo do banco se R$ <?= number_format($pedido->valor_total, 2, ',', '.') ?> entrou na conta.
+                                Um print ou comprovante enviado pelo comprador não é suficiente.</p>
+                            </div>
+                        </div>
+                        <label class="marcadorConfirmacaoPix">
+                            <input type="checkbox" name="conferiu_extrato" value="sim" required>
+                            Conferi o extrato bancário e o valor foi recebido.
+                        </label>
+                        <button type="submit" class="btnAcao btnAceitarPedido" disabled>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            Confirmar Recebimento
+                        </button>
+                    </form>
 				<?php endif; ?>
 
 				<?php if ($pedido->status_pagamento === 'aprovado' && $pedido->status_entrega === 'em_producao'): ?>
@@ -278,6 +290,7 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 
+	<script src="<?= base_url('js/confirmacaoPix.js') ?>"></script>
 	<script>
 		const countdowns = {};
 
