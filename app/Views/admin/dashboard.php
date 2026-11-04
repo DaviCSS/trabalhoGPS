@@ -190,7 +190,7 @@
 											<td><?= date('d/m/Y', strtotime($pedido->created_at)) ?></td>
 											<td class="fw-bold text-oliva">R$ <?= number_format($pedido->valor_total, 2, ',', '.') ?></td>
 											<td>
-												<?php if ($pedido->status_pagamento === 'pago'): ?>
+												<?php if ($pedido->status_pagamento === 'aprovado'): ?>
 													<span class="badge bg-success">Pago</span>
 												<?php else: ?>
 													<span class="badge bg-warning text-dark">Pendente</span>

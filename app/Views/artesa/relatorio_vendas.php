@@ -42,10 +42,10 @@
     <form method="get" action="<?= base_url('artesa/relatorio') ?>" class="card border-0 shadow-sm rounded-4 p-3 p-md-4 mb-4">
         <h3 class="fs-5 text-vinho fw-bold">Escolha o período</h3>
         <div class="d-flex gap-2 flex-wrap mb-3">
-            <a class="btn <?= $periodo === 'semana' ? 'btn-dark' : 'btn-outline-secondary' ?>" href="<?= base_url('artesa/relatorio?periodo=semana') ?>">Esta semana</a>
-            <a class="btn <?= $periodo === 'mes_atual' ? 'btn-dark' : 'btn-outline-secondary' ?>" href="<?= base_url('artesa/relatorio?periodo=mes_atual') ?>">Este mês</a>
-            <a class="btn <?= $periodo === 'mes_anterior' ? 'btn-dark' : 'btn-outline-secondary' ?>" href="<?= base_url('artesa/relatorio?periodo=mes_anterior') ?>">Mês passado</a>
-            <a class="btn <?= $periodo === 'total' ? 'btn-dark' : 'btn-outline-secondary' ?>" href="<?= base_url('artesa/relatorio?periodo=total') ?>">Tudo</a>
+            <a class="btn <?= $periodo === 'semana' ? 'btn-dark' : 'btn-outline-secondary' ?>" href="<?= base_url('artesa/relatorio') . '?periodo=semana' ?>">Esta semana</a>
+            <a class="btn <?= $periodo === 'mes_atual' ? 'btn-dark' : 'btn-outline-secondary' ?>" href="<?= base_url('artesa/relatorio') . '?periodo=mes_atual' ?>">Este mês</a>
+            <a class="btn <?= $periodo === 'mes_anterior' ? 'btn-dark' : 'btn-outline-secondary' ?>" href="<?= base_url('artesa/relatorio') . '?periodo=mes_anterior' ?>">Mês passado</a>
+            <a class="btn <?= $periodo === 'total' ? 'btn-dark' : 'btn-outline-secondary' ?>" href="<?= base_url('artesa/relatorio') . '?periodo=total' ?>">Tudo</a>
         </div>
         <label for="mesRelatorio" class="form-label fw-bold">Ou escolha um mês específico</label>
         <div class="row g-2">

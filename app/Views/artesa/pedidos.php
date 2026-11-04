@@ -120,11 +120,11 @@
 						<?= $pedido->status_pagamento === 'aprovado' ? 'Pago' : 'Pagamento Pendente' ?>
 					</span>
 					
-					<?php if ($pedido->status_pagamento === 'aprovado' && $pedido->status_entrega === 'em_producao'): ?>
+					<?php if ($pedido->status_entrega === 'em_producao'): ?>
 						<span class="badgeStatus badge-amarelo">Em Produção</span>
-					<?php elseif ($pedido->status_pagamento === 'aprovado' && $pedido->status_entrega === 'aguardando_coleta'): ?>
+					<?php elseif ($pedido->status_entrega === 'aguardando_coleta'): ?>
 						<span class="badgeStatus badge-azul">Aguardando Coleta</span>
-					<?php elseif ($pedido->status_pagamento === 'aprovado' && $pedido->status_entrega === 'enviado'): ?>
+					<?php elseif ($pedido->status_entrega === 'enviado'): ?>
 						<span class="badgeStatus badge-azul">Enviado</span>
 					<?php elseif ($pedido->status_entrega === 'entregue'): ?>
 						<span class="badgeStatus badge-verde">Entregue</span>
@@ -189,7 +189,7 @@
 					</form>
 				<?php endif; ?>
 
-				<?php if ($pedido->status_entrega === 'em_producao'): ?>
+				<?php if ($pedido->status_pagamento === 'aprovado' && $pedido->status_entrega === 'em_producao'): ?>
 					<form action="<?= base_url('artesa/pedidos/status/' . $pedido->id) ?>" method="post" class="formAcaoEmLinha">
 						<?= csrf_field() ?>
 						<input type="hidden" name="status_entrega" value="aguardando_coleta">
@@ -198,7 +198,7 @@
 							Aguardando Coleta
 						</button>
 					</form>
-				<?php elseif ($pedido->status_entrega === 'aguardando_coleta'): ?>
+				<?php elseif ($pedido->status_pagamento === 'aprovado' && $pedido->status_entrega === 'aguardando_coleta'): ?>
 					<form action="<?= base_url('artesa/pedidos/status/' . $pedido->id) ?>" method="post" class="formAcaoEmLinha">
 						<?= csrf_field() ?>
 						<input type="hidden" name="status_entrega" value="enviado">
@@ -207,7 +207,7 @@
 							Marcar como Enviado
 						</button>
 					</form>
-				<?php elseif ($pedido->status_entrega === 'enviado'): ?>
+				<?php elseif ($pedido->status_pagamento === 'aprovado' && $pedido->status_entrega === 'enviado'): ?>
 					<form action="<?= base_url('artesa/pedidos/status/' . $pedido->id) ?>" method="post" class="formAcaoEmLinha">
 						<?= csrf_field() ?>
 						<input type="hidden" name="status_entrega" value="entregue">
