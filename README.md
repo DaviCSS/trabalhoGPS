@@ -143,3 +143,8 @@ O QR Code é renderizado pelo JavaScript QRCode.js via CDN, sem API de pagamento
 Para testar a estrutura do Pix, execute `vendor/bin/phpunit tests/unit/PixServiceTest.php`.
 
 **Atenção:** gerar o Pix não comprova recebimento; este MVP não acessa o extrato bancário automaticamente. As vendas manuais são registradas separadamente dos pedidos para evitar duplicidade.
+
+
+## PBIs 04 e 12
+
+O PBI-04 alerta sobre a necessidade de conferir o recebimento do Pix no banco antes da confirmação. O PBI-12 fornece acesso ao suporte pelo WhatsApp, com contato configurável no ambiente.
