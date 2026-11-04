@@ -467,7 +467,7 @@
 			</div>
 		</div>
 
-		<h2 class="secaoApoioTitulo">Precisa de Ajuda?</h2>
+		<h2 class="secaoApoioTitulo" id="suporte-whatsapp">Precisa de Ajuda?</h2>
 
 		<div class="cardConfig">
 			<div class="cardConfigItem">
@@ -476,15 +476,17 @@
 				</div>
 				<div class="cardConfigTexto">
 					<strong>Falar com o Suporte do Crochettei</strong>
-					<span>Alguma dúvida técnica? A gente ajuda pelo WhatsApp.</span>
+					<span><?= $linkSuporte ? 'Tire suas dúvidas pelo WhatsApp.' : 'O contato de suporte ainda não está configurado.' ?></span>
 				</div>
 				<div class="cardConfigAcao">
-					<a href="https://wa.me/5511999999999?text=Olá!%20Sou%20ajudante%20da%20artesã%20<?= urlencode($usuario->nome) ?>%20e%20preciso%20de%20suporte%20técnico%20no%20Crochettei."
-						target="_blank"
-						class="linkConfigItem"
-						aria-label="Abrir WhatsApp do suporte Crochettei">
-						Falar no WhatsApp →
-					</a>
+					<?php if ($linkSuporte): ?>
+                        <a href="<?= esc($linkSuporte, 'attr') ?>" target="_blank" rel="noopener noreferrer"
+                            class="linkConfigItem" aria-label="Abrir o suporte no WhatsApp com mensagem pronta">
+                            Falar no WhatsApp →
+                        </a>
+                    <?php else: ?>
+                        <span class="badgeEmBreve">Contato indisponível</span>
+                    <?php endif; ?>
 				</div>
 			</div>
 		</div>
