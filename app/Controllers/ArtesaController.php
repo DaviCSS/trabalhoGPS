@@ -321,7 +321,7 @@ class ArtesaController extends Controller
 
         foreach ($resumo['registros'] as $registro) {
             $linhas[] = date('d/m/Y', strtotime($registro['data'])) . ' | '
-                . str_replace(["\r", "\n", '|"], ' ', $registro['produto']) . ' | '
+                . str_replace(["\r", "\n", '|'], ' ', $registro['produto']) . ' | '
                 . $registro['situacao'] . ' | R$ '
                 . number_format($registro['valor'], 2, ',', '.');
         }
